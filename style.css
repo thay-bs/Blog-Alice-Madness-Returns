@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
 }
 
-/* Navegação */
+
 .barra-nav {
   display: flex;
   align-items: center;
@@ -59,7 +59,6 @@ body {
   color: #fff;
 }
 
-/* Conteúdo principal */
 .conteudo-principal {
   max-width: 680px;
   margin: 0 auto;
@@ -69,7 +68,6 @@ body {
   gap: 32px;
 }
 
-/* Seção destaque / carrossel */
 .secao-destaque {
   background-color: #12121f;
   border-radius: 12px;
@@ -147,7 +145,6 @@ body {
   color: #f0c040;
 }
 
-/* Seções genéricas */
 .secao-generica {
   display: flex;
   flex-direction: column;
@@ -160,7 +157,6 @@ body {
   color: #ccc;
 }
 
-/* Grade de cards pequenos */
 .grade-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -173,7 +169,6 @@ body {
   height: 90px;
 }
 
-/* Grade de artigos */
 .grade-artigos {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -211,7 +206,6 @@ body {
   background-color: #a02828;
 }
 
-/* Seção quiz */
 .secao-quiz {
   display: flex;
   flex-direction: column;
