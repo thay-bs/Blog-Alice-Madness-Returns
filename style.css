@@ -1,0 +1,287 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+/* Navegação */
+.barra-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #12121f;
+  padding: 12px 24px;
+  border-bottom: 1px solid #2a2a40;
+}
+
+.logo {
+  font-size: 24px;
+  color: #c0392b;
+  background-color: #fff;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.menu-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.item-nav {
+  text-decoration: none;
+  color: #aaa;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.item-nav.ativo {
+  background-color: #7b1f1f;
+  color: #fff;
+}
+
+.item-nav:hover {
+  background-color: #2a2a40;
+  color: #fff;
+}
+
+/* Conteúdo principal */
+.conteudo-principal {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Seção destaque / carrossel */
+.secao-destaque {
+  background-color: #12121f;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.carrossel {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  background: linear-gradient(135deg, #2d6a4f, #52b788, #74c69d, #4a7c59);
+  overflow: hidden;
+}
+
+.imagem-destaque {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.titulo-jogo-destaque {
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  line-height: 1.1;
+}
+
+.subtitulo-destaque {
+  font-size: 44px;
+  color: #74c69d;
+}
+
+.btn-carrossel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.btn-carrossel.esquerda { left: 10px; }
+.btn-carrossel.direita  { right: 10px; }
+
+.info-jogo-destaque {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.nome-jogo {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nota-jogo {
+  font-size: 14px;
+  color: #f0c040;
+}
+
+/* Seções genéricas */
+.secao-generica {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.titulo-secao {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ccc;
+}
+
+/* Grade de cards pequenos */
+.grade-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card-vazio {
+  background-color: #22223a;
+  border-radius: 8px;
+  height: 90px;
+}
+
+/* Grade de artigos */
+.grade-artigos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.card-artigo {
+  background-color: #22223a;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+}
+
+.imagem-artigo {
+  background-color: #2e2e4a;
+  height: 200px;
+  flex: 1;
+}
+
+.btn-ler-mais {
+  background-color: #7b1f1f;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  width: fit-content;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+.btn-ler-mais:hover {
+  background-color: #a02828;
+}
+
+/* Seção quiz */
+.secao-quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-quiz {
+  background-color: #7b1f1f;
+  color: #fff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 16px;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.caixa-quiz {
+  width: 100%;
+  background-color: #12121f;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.progresso-quiz {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.barra-progresso {
+  background-color: #2a2a40;
+  border-radius: 4px;
+  height: 5px;
+  width: 100%;
+}
+
+.barra-progresso-preenchida {
+  background-color: #c0392b;
+  height: 100%;
+  width: 20%; /* questão 2 de 10 */
+  border-radius: 4px;
+}
+
+.pergunta-quiz {
+  font-size: 14px;
+  color: #ddd;
+}
+
+.opcoes-quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.opcao-quiz {
+  background-color: #7b1f1f;
+  color: #fff;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 6px;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.opcao-quiz:hover {
+  background-color: #a02828;
+}
