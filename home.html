@@ -5,68 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Estilos dos cards de artigo atualizados */
-    .card-artigo {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border-radius: 12px;
-    }
-
-    .imagem-artigo {
-      width: 100%;
-      height: 160px;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .imagem-artigo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .conteudo-artigo {
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      gap: 6px;
-    }
-
-    .titulo-artigo {
-      font-size: 0.8rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin: 0;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .descricao-artigo {
-      font-size: 0.7rem;
-      line-height: 1.4;
-      margin: 0;
-      opacity: 0.75;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .btn-ler-mais {
-      margin-top: auto;
-      align-self: flex-start;
-    }
-
-    .card-artigo a {
-      text-decoration: none;
-    }
-  </style>
 </head>
 <body>
 
@@ -108,8 +46,7 @@
 
         <div class="card-artigo">
           <div class="imagem-artigo">
-            <img
-              src="https://s2-g1.glbimg.com/ysUMtd2SJneUNiLdYTcmkERN_os=/0x0:1000x167/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2018/o/s/aubBAURqyUaTHrPVRgqA/selo-nao-e-bem-assim-1-.jpg">
+            <img src="https://s2-g1.glbimg.com/ysUMtd2SJneUNiLdYTcmkERN_os=/0x0:1000x167/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2018/o/s/aubBAURqyUaTHrPVRgqA/selo-nao-e-bem-assim-1-.jpg">
           </div>
           <div class="conteudo-artigo">
             <h3 class="titulo-artigo">GTA VI não será banido no Brasil pela Lei Felca</h3>
@@ -136,8 +73,7 @@
 
         <div class="card-artigo">
           <div class="imagem-artigo">
-            <img
-              src="https://www.adrenaline.com.br/wp-content/uploads/2026/02/pokemon-ventos-ondas-oficial.jpg">
+            <img style= 'height: 180px' src="https://www.adrenaline.com.br/wp-content/uploads/2026/02/pokemon-ventos-ondas-oficial.jpg">
           </div>
           <div class="conteudo-artigo">
             <h3 class="titulo-artigo">Pokémon Ventos e Ondas chegam em 2027 com PT-BR</h3>
@@ -166,18 +102,18 @@
     </section>
 
     <section class="secao-quiz"></section>
-      <button class="btn-quiz">Descubra qual personagem de Alice você é:
+      <button class="btn-quiz">Descubra quanto você sabe sobre jogos!
       </button>
       <div class="caixa-quiz">
         <p class="progresso-quiz">Questão 2 de 10</p>
         <div class="barra-progresso">
           <div class="barra-progresso-preenchida"></div>
         </div>
-        <p class="pergunta-quiz">Qual sua comida favorita?</p>
+        <p class="pergunta-quiz">Quem foi o criador do jogo "The Legend Of Zelda"</p>
         <div class="opcoes-quiz">
-          <button class="opcao-quiz">Chá e bolinhos 🫖</button>
-          <button class="opcao-quiz">Algo doce e colorido (tipo doces malucos) 🍭</button>
-          <button class="opcao-quiz">Algo sofisticado e elegante 🍷</button>
+          <button class="opcao-quiz">Shigeru Miyamoto</button>
+          <button class="opcao-quiz">Hideo Kojima</button>
+          <button class="opcao-quiz">Shinji Mikami</button>
         </div>
       </div>
     </section>
