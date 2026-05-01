@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AquaTech | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="estilo.css" />
+  <link rel="icon" href="./assets/icon/favicon2.ico" />
+
+  <style>
+    .erro {
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body onload="listar()">
+
+  <!-- ALERTA -->
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo">
+      <div class="logo-icon">♥️</div>
+    </div>
+    <ul class="navbar">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="simulador.html">Reviews</a></li>
+      <li><a href="login.html">Perfil</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main-content">
+    <div class="card-cadastro">
+
+      <!-- FORM -->
+      <div class="card-left">
+        <h2>Bem-vindo!</h2>
+
+        <div class="formulario">
+
+          <div class="campo">
+            <span>Nome:</span>
+            <input id="nome_input" type="text" />
+            <span id="nome-required-error" class="erro">Nome obrigatório</span>
+          </div>
+
+          <div class="campo">
+            <span>Nome de Usuário:</span>
+            <input id="usuario_input" type="text" />
+            <span id="usuario-required-error" class="erro">Usuário obrigatório</span>
+          </div>
+
+          <div class="campo">
+            <span>E-mail:</span>
+            <input id="email_input" type="text" />
+            <span id="email-required-error" class="erro">Email obrigatório</span>
+            <span id="email-invalid-error" class="erro">Email inválido</span>
+          </div>
+
+          <div class="campo">
+            <span>Senha:</span>
+            <input id="senha_input" type="password" />
+            <span id="senha-required-error" class="erro">Senha obrigatória</span>
+            <span id="senha-comprimento-error" class="erro">Mínimo 8 caracteres</span>
+            <span id="senha-numero-error" class="erro">Precisa de número</span>
+            <span id="senha-caractere-error" class="erro">Precisa de caractere especial</span>
+            <span id="senha-maiuscula-error" class="erro">Precisa de letra maiúscula</span>
+          </div>
+
+          <div class="campo">
+            <span>Confirmação da Senha:</span>
+            <input id="confirmacao_senha_input" type="password" />
+            <span id="confirmacao-required-error" class="erro">Confirmação obrigatória</span>
+            <span id="confirmacao-invalid-error" class="erro">Senhas não coincidem</span>
+          </div>
+
+          <button class="botao" onclick="cadastrar()">CADASTRAR</button>
+
+        </div>
+
+        <div id="div_aguardar" class="loading-div">
+          <img src="./assets/circle-loading.gif" />
+        </div>
+
+      </div>
+
+      <!-- IMG -->
+      <div class="card-right">
+        <img src="kirby.png" alt="Ilustração" />
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <h4>Feito com amor por aluno ♥ SPTech © 2023</h4>
+    <span class="version">v1.0.0</span>
+  </div>
+
+  <script>
+  function cadastrar() {
+
+  let nome = document.getElementById("nome_input").value;
+  let usuario = document.getElementById("usuario_input").value;
+  let email = document.getElementById("email_input").value;
+  let senha = document.getElementById("senha_input").value;
+  let confirmacao = document.getElementById("confirmacao_senha_input").value;
+
+  let caracteres = ['!', '@', '$', '%', '&', '*', '?', '/'];
+  let numeros = [1,2,3,4,5,6,7,8,9,0];
+
+  let valido = true;
+
+  if (nome === '') {
+    valido = false;
+    document.getElementById("nome-required-error").style.display = "block";
+  } else {
+    document.getElementById("nome-required-error").style.display = "none";
+  }
+
+  // USUARIO
+  if (usuario === '') {
+    valido = false;
+    document.getElementById("usuario-required-error").style.display = "block";
+  } else {
+    document.getElementById("usuario-required-error").style.display = "none";
+  }
+
+  // EMAIL
+  if (email === '') {
+    valido = false;
+    document.getElementById("email-required-error").style.display = "block";
+  } else {
+    document.getElementById("email-required-error").style.display = "none";
+
+    if (!email.includes('@')) {
+      valido = false;
+      document.getElementById("email-invalid-error").style.display = "block";
+    } else {
+      document.getElementById("email-invalid-error").style.display = "none";
+    }
+  }
+
+  // SENHA
+  if (senha === '') {
+    valido = false;
+    document.getElementById("senha-required-error").style.display = "block";
+  } else {
+    document.getElementById("senha-required-error").style.display = "none";
+
+    let contemnumero = false;
+    let contemcaractere = false;
+
+    if (senha.length < 8) {
+      valido = false;
+      document.getElementById("senha-comprimento-error").style.display = "block";
+    } else {
+      document.getElementById("senha-comprimento-error").style.display = "none";
+    }
+
+   for (let i = 0; i < numeros.length; i++) {
+    if (senha.includes(numeros[i])) {
+    contemnumero = true;
+    break;
+  }
+}
+
+    if (!contemnumero) {
+      valido = false;
+      document.getElementById("senha-numero-error").style.display = "block";
+    } else {
+      document.getElementById("senha-numero-error").style.display = "none";
+    }
+      
+for (let i = 0; i < caracteres.length; i++) {
+  if (senha.includes(caracteres[i])) {
+    contemcaractere = true;
+    break;
+  }
+}
+
+    if (!contemcaractere) {
+      valido = false;
+      document.getElementById("senha-caractere-error").style.display = "block";
+    } else {
+      document.getElementById("senha-caractere-error").style.display = "none";
+    }
+
+    if (senha === senha.toLowerCase()) {
+      valido = false;
+      document.getElementById("senha-maiuscula-error").style.display = "block";
+    } else {
+      document.getElementById("senha-maiuscula-error").style.display = "none";
+    }
+  }
+
+  // CONFIRMAÇÃO
+  if (confirmacao === '') {
+    valido = false;
+    document.getElementById("confirmacao-required-error").style.display = "block";
+  } else {
+    document.getElementById("confirmacao-required-error").style.display = "none";
+
+    if (confirmacao !== senha) {
+      valido = false;
+      document.getElementById("confirmacao-invalid-error").style.display = "block";
+    } else {
+      document.getElementById("confirmacao-invalid-error").style.display = "none";
+    }
+  }
+
+  // SUCESSO
+  if (valido) {
+    document.getElementById("cardErro").style.display = "block";
+    document.getElementById("mensagem_erro").innerHTML = "Cadastro realizado com sucesso!";
+
+    setTimeout(() => {
+      document.getElementById("cardErro").style.display = "none";
+      window.location.href = "./login.html";
+    }, 2000);
+  }
+}
+  </script>
+
+</body>
+</html>
