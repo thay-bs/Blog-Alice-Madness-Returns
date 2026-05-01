@@ -26,7 +26,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 62px; /* compensa o header fixo */
+  padding-top: 62px; 
 }
 
 /* ── HEADER ── */
