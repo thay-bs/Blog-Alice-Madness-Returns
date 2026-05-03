@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Alice | Login</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="./css/styleLogin.css" />
+
+  <style>
+    .erro {
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+  </style>
+</head>
+
+  <!-- ALERTA -->
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo">
+    </div>
+    <ul class="navbar">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="simulador.html">Reviews</a></li>
+      <li><a href="login.html">Perfil</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main-content">
+    <div class="card-cadastro">
+
+      <div class="card-left">
+        <h2>Bem-vindo de volta!</h2>
+
+        <div class="formulario">
+
+          <div class="campo">
+            <span>Usuário ou E-mail:</span>
+            <input id="usuario_input" type="text" />
+            <span id="usuario-error" class="erro">Campo obrigatório</span>
+          </div>
+
+          <div class="campo">
+            <span>Senha:</span>
+            <input id="senha_input" type="password" />
+            <span id="senha-error" class="erro">Senha obrigatória</span>
+          </div>
+
+          <button type="button" class="botao" onclick="entrar()">ENTRAR</button>
+
+        </div>
+
+        <div id="div_aguardar" class="loading-div">
+          <img src="./assets/circle-loading.gif" />
+        </div>
+
+      </div>
+
+      <div class="card-right">
+        <img src="./assets/kirby.png" alt="Ilustração" />
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="version">v1.0.0</span>
+  </div>
+
+  <!-- SCRIPT -->
+ <!-- SCRIPT CORRIGIDO -->
+<script>
+    function entrar() {
+        // aguardar(); // Comentado para não travar enquanto o sessao.js dá erro
+
+        // Recuperando os valores pelos IDs corretos do seu HTML
+        var emailVar = usuario_input.value; 
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Preencha todos os campos!";
+            // finalizarAguardar(); 
+            return false;
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }) 
+        .then(res => {
+            if (!res.ok) {
+                throw 'Email ou senha inválidos';
+            }
+            return res.json();
+        })
+        .then(data => {
+            // Salvando os dados na sessão
+            sessionStorage.EMAIL_USUARIO = data.email;
+            sessionStorage.NOME_USUARIO = data.nome;
+            sessionStorage.ID_USUARIO = data.id;
+
+            alert('Bem vindo, ' + data.nome + '!');
+
+            setTimeout(() => {
+                window.location = 'index.html';
+            }, 1000);
+        })
+        .catch(err => {
+            console.log(err);
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = err;
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none";
+    }
+</script>
+</body>
+</html>

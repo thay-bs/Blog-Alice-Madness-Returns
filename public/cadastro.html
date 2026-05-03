@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <style>
+    .erro {
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+  </style>
+</head>
+
+
+  <!-- ALERTA -->
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo">
+
+    </div>
+    <ul class="navbar">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="simulador.html">Reviews</a></li>
+      <li><a href="login.html">Perfil</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main-content">
+    <div class="card-cadastro">
+
+      <!-- FORM -->
+      <div class="card-left">
+        <h2>Bem-vindo!</h2>
+
+        <div class="formulario">
+
+          <div class="campo">
+            <span>Nome:</span>
+            <input id="nome_input" type="text" />
+            <span id="nome-required-error" class="erro">Nome obrigatório</span>
+          </div>
+
+          <div class="campo">
+            <span>Nome de Usuário:</span>
+            <input id="usuario_input" type="text" />
+            <span id="usuario-required-error" class="erro">Usuário obrigatório</span>
+          </div>
+
+          <div class="campo">
+            <span>E-mail:</span>
+            <input id="email_input" type="text" />
+            <span id="email-required-error" class="erro">Email obrigatório</span>
+            <span id="email-invalid-error" class="erro">Email inválido</span>
+          </div>
+
+          <div class="campo">
+            <span>Senha:</span>
+            <input id="senha_input" type="password" />
+            <span id="senha-required-error" class="erro">Senha obrigatória</span>
+            <span id="senha-comprimento-error" class="erro">Mínimo 8 caracteres</span>
+            <span id="senha-numero-error" class="erro">Precisa de número</span>
+            <span id="senha-caractere-error" class="erro">Precisa de caractere especial</span>
+            <span id="senha-maiuscula-error" class="erro">Precisa de letra maiúscula</span>
+          </div>
+
+          <div class="campo">
+            <span>Confirmação da Senha:</span>
+            <input id="confirmacao_senha_input" type="password" />
+            <span id="confirmacao-required-error" class="erro">Confirmação obrigatória</span>
+            <span id="confirmacao-invalid-error" class="erro">Senhas não coincidem</span>
+          </div>
+
+          <button class="botao" onclick="cadastrar()">CADASTRAR</button>
+
+        </div>
+
+        <div id="div_aguardar" class="loading-div">
+          <img src="./assets/circle-loading.gif" />
+        </div>
+
+      </div>
+
+      <!-- IMG -->
+      <div class="card-right">
+        <img src="./assets/kirby.png" alt="Ilustração" />
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="version">v1.0.0</span>
+  </div>
+
+  <script>
+function cadastrar() {
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var usuarioVar = usuario_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+    if (
+        nomeVar == "" ||
+        emailVar == "" ||
+        usuarioVar == "" ||
+        senhaVar == "" ||
+        confirmacaoSenhaVar == "" 
+    ) {
+        alert("Preencha todos os campos!");
+        return false;
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+        alert("As senhas não coincidem!");
+        return false;
+    }
+
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            usuarioServer : usuarioVar,
+            senhaServer: senhaVar,
+        }),
+    })
+    .then(res => {
+        if (res.ok) {
+            alert("Cadastro realizado!");
+            setTimeout(() => {
+                window.location = "index.html";
+            }, 2000);
+        } else {
+            throw "Erro no cadastro";
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+    return false;
+}
+</script>
+
+</body>
+</html>
