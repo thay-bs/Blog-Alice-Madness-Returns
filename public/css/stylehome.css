@@ -1,212 +1,232 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --rosa:#ff6b81;
+  --verde:#2d9e6b;
+  --escuro:#2F2F61;
+  --claro:#ffffff;
 }
 
-body {
-  font-family: sans-serif;
-  color: #2F2F61;
-  background: #ffffff;
-}
-.barra-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f5f5f5;
-  padding: 12px 24px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Barlow', sans-serif;
 }
 
-.menu-nav {
-  display: flex;
-  gap: 10px;
+body{
+  background:#fff;
+  color:var(--escuro);
 }
 
-.item-nav {
-  text-decoration: none;
-  color: #2F2F61;
-  padding: 8px 14px;
-  border-radius: 20px;
+section{
+  padding:60px 20px;
 }
 
-.conteudo-principal {
-  width: 100%;
+section:nth-child(odd){
+  background:#F8DADD;
 }
 
-main section {
-  width: 100%;
-  padding: 50px 0;
+section:nth-child(even){
+  background:#DFF5EA;
 }
 
-main section:nth-child(odd) {
-  background: #F8DADD;
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
 }
 
-main section:nth-child(even) {
-  background: #DFF5EA;
-}
-main section > * {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.secao-destaque {
-  padding: 40px 0;
+.barra-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 5%;
+  background:#f5f5f5;
 }
 
-.titulo-secao {
-  max-width: 900px;
-  margin: 0 auto 10px auto;
-  padding: 0 20px;
-  font-size: 18px;
+.menu-nav{
+  display:flex;
+  gap:10px;
 }
 
-.carrossel {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  border-radius: 16px;
-  background: white;
-  padding: 18px;
-  height: 500px;
+.item-nav{
+  text-decoration:none;
+  color:var(--escuro);
+  padding:8px 14px;
+  border-radius:20px;
+  transition:.2s;
 }
 
-.img-placeholder {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
+.item-nav:hover{
+  background:#e9e9e9;
 }
 
-.info-jogo-destaque {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 0 0 0;
+/* DESTAQUE */
+.carrossel{
+  background:var(--claro);
+  border-radius:20px;
+  padding:20px;
 }
 
-.secao-generica {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.img-placeholder{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  border-radius:12px;
 }
 
-.card-vazio,
-.card-artigo,
-.caixa-quiz {
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 12px;
+.nome-jogo{
+  display:block;
+  margin-top:10px;
+  font-size:22px;
+  font-weight:700;
 }
 
-.grade-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+.nota-jogo{
+  font-size:14px;
+}
+.titulo-secao{
+  margin-bottom:20px;
 }
 
-.card-vazio {
-  height: 140px;
+.grade-artigos{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
 }
 
-/* ================= ARTIGOS ================= */
-
-.grade-artigos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+.card-artigo{
+  background:rgba(255,255,255,.7);
+  border-radius:20px;
+  overflow:hidden;
+  padding:20px;
 }
 
-.card-artigo {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+.imagem-artigo{
+  height:200px;
 }
 
-.imagem-artigo {
-  height: 180px;
+.imagem-artigo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
 }
 
-.imagem-artigo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.conteudo-artigo{
+  padding-top:15px;
 }
 
-.conteudo-artigo {
-  padding: 12px;
+.titulo-artigo{
+  margin-bottom:10px;
 }
 
-.btn-ler-mais {
-  margin-top: 10px;
-  background: #F8DADD;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
+.descricao-artigo{
+  margin-bottom:15px;
+  color:#555;
 }
 
-/* ================= QUIZ ================= */
+/* BOTÕES (Geral) */
+button{
+  border:none;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn-ler-mais{
+  padding:12px 18px;
+  border-radius:12px;
+  color:white;
+  font-weight:600;
+  background:var(--rosa);
+}
+
+button:hover{
+  opacity:.9;
+  transform:translateY(-2px);
+}
 
 .secao-quiz {
+  display: flex;       
+  justify-content: center;
+  gap: 20px;
+}
+
+.card-quiz {
+  flex: 1;             
+  min-width: 320px;   
+  max-width: 550px;
+  background: rgba(255,255,255,.7);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column; 
   text-align: center;
 }
 
-.btn-quiz {
-  background: #ff6b81;
+#btnQuizGame, #btnQuizAlice, 
+#proxGame, #proxAlice, 
+.resultado-quiz button {
+  padding: 15px 40px;  
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 30px;
   color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  cursor: pointer;
+  margin: 20px auto;    
+  min-width: 220px;   
+  display: block;
 }
 
-.caixa-quiz {
-  margin-top: 20px;
-  padding: 20px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+#btnQuizGame, #proxGame, .resultado-quiz button { background: var(--rosa); }
+#btnQuizAlice, #proxAlice { background: var(--verde); }
+
+#quizGame, #quizAlice {
+  flex-direction: column;
+  align-items: center;
 }
 
-.opcao-quiz {
+#quizGame[style*="display: block"], 
+#quizAlice[style*="display: block"] {
+  display: flex !important;
+}
+
+.barra {
   width: 100%;
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  background: rgba(255,255,255,0.8);
-  cursor: pointer;
-}
-
-.opcao-quiz:hover {
-  background: #ff6b81;
-  color: white;
-}
-
-/* BARRA */
-.barra-progresso {
   height: 8px;
   background: #ddd;
   border-radius: 10px;
-  margin: 10px 0;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
-.barra-progresso-preenchida {
+#progressoGame, #progressoAlice {
   height: 100%;
   width: 0%;
-  background: #ff6b81;
-  border-radius: 10px;
-}
-.nome-jogo {
-  font-size: 18px;
-  font-weight: bold;
-  display: block;
-  margin-top: 10px;
+  transition: .3s;
 }
 
-.nota-jogo {
-  font-size: 14px;
-  font-weight: bold;
-  display: block;
+#progressoGame { background: var(--rosa); }
+#progressoAlice { background: var(--verde); }
+
+.opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
+
+.opcoes button {
+  padding: 12px;
+  border-radius: 10px;
+  background: white;
+  color: var(--escuro);
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+#game0, #game1, #game2, #game3 { border-color: var(--rosa); }
+#alice0, #alice1, #alice2, #alice3 { border-color: var(--verde); }
+
+.correta { background: var(--verde) !important; color: white; border: none !important; }
+.errada { background: var(--rosa) !important; color: white; border: none !important; }

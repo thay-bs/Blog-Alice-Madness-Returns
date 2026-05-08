@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog</title>
-  <link rel="stylesheet" href="./css/stylehome.css">
+  <title>Blog de Games</title>
+  <link rel="stylesheet" href="./css/stylehome.css" />
+  <style>
+    /* Estilos básicos para garantir que o quiz funcione visualmente */
+    .barra {
+      background: #eee;
+      border-radius: 5px;
+      margin: 10px 0;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    #progressoGame,
+    #progressoAlice {
+      height: 100%;
+      background: #4CAF50;
+      width: 0%;
+      transition: 0.3s;
+    }
+
+    .opcoes button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .resultado-quiz {
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 
 <body>
@@ -13,7 +47,7 @@
     <div class="logo"></div>
     <div class="menu-nav">
       <a href="#" class="item-nav">Início</a>
-      <a href="#" class="item-nav"> Reviews</a>
+      <a href="#" class="item-nav">Reviews</a>
       <a href="#" class="item-nav">Perfil</a>
       <a href="cadastro.html" class="item-nav">Cadastro</a>
       <a href="login.html" class="item-nav">Login</a>
@@ -25,195 +59,376 @@
     <section class="secao-destaque">
       <div class="carrossel">
         <div class="imagem-destaque">
-          <img src="./assets/pokopia.png" class="img-placeholder">
+          <img src="./assets/pokopia.png" class="img-placeholder" alt="Pokemon Pokopia">
         </div>
-         <span class="nome-jogo">Pokemon Pokopia</span>
+        <span class="nome-jogo">Pokemon Pokopia</span>
         <span class="nota-jogo">⭐ 4.8</span>
       </div>
-      <div class="info-jogo-destaque">
-       
+    </section>
+    <section class="secao-generica">
+      <h2 class="titulo-secao">Artigos/notícias</h2>
+
+      <div class="grade-artigos">
+
+        <div class="card-artigo">
+          <div class="imagem-artigo">
+            <img
+              src="https://s2-g1.glbimg.com/ysUMtd2SJneUNiLdYTcmkERN_os=/0x0:1000x167/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2018/o/s/aubBAURqyUaTHrPVRgqA/selo-nao-e-bem-assim-1-.jpg">
+          </div>
+          <div class="conteudo-artigo">
+            <h3 class="titulo-artigo">GTA VI não será banido no Brasil pela Lei Felca</h3>
+            <p class="descricao-artigo">Rockstar suspendeu sua loja própria, mas o jogo segue disponível na PS Store,
+              Xbox e Steam.</p>
+            <a href="https://g1.globo.com/fato-ou-fake/noticia/2026/03/20/nao-e-bem-assim-gta-vi-nao-sera-comercializado-no-brasil-apos-implementacao-da-lei-felca.ghtml"
+              target="_blank">
+              <button class="btn-ler-mais">Ler mais</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="card-artigo">
+          <div class="imagem-artigo">
+            <img
+              src="https://s2-g1.glbimg.com/LYqdhQ_bmThPkIyx-icjrYDOu0E=/0x0:960x540/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/p/U/lhWBQKSBmDoEu4s6tlig/project-helix.jpg">
+          </div>
+          <div class="conteudo-artigo">
+            <h3 class="titulo-artigo">Project Helix: novo Xbox rodará games de Xbox e PC</h3>
+            <p class="descricao-artigo">Console de próxima geração da Microsoft chega aos devs em 2027.</p>
+            <a href="https://g1.globo.com/pop-arte/games/noticia/2026/03/05/console-de-proxima-geracao-da-microsoft-de-codinome-project-helix-vai-rodar-games-de-xbox-e-pc.ghtml"
+              target="_blank">
+              <button class="btn-ler-mais">Ler mais</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="card-artigo">
+          <div class="imagem-artigo">
+            <img src="https://www.adrenaline.com.br/wp-content/uploads/2026/02/pokemon-ventos-ondas-oficial.jpg">
+          </div>
+          <div class="conteudo-artigo">
+            <h3 class="titulo-artigo">Pokémon Ventos e Ondas chegam em 2027 com PT-BR</h3>
+            <p class="descricao-artigo">10ª geração será a primeira com tradução em português.</p>
+            <a href="https://g1.globo.com/pop-arte/games/noticia/2026/02/27/pokemon-ventos-e-ondas-sao-novos-games-da-franquia-com-lancamento-em-2027-veja-trailer.ghtml"
+              target="_blank">
+              <button class="btn-ler-mais">Ler mais</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="card-artigo">
+          <div class="imagem-artigo">
+            <img
+              src="https://s2-g1.glbimg.com/G4YQQPD0C_KncpFWGKjkvDP0rIg=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/W/F/KWmgUUS76iBB3D5oLlbQ/baldurs-gate-3.jpg">
+          </div>
+          <div class="conteudo-artigo">
+            <h3 class="titulo-artigo">Baldur's Gate vira série da HBO</h3>
+            <p class="descricao-artigo">Criador de The Last of Us lidera a adaptação.</p>
+            <a href="https://g1.globo.com/pop-arte/tv-e-series/noticia/2026/02/05/baldurs-gate-vai-virar-serie-do-cocriador-de-the-last-of-us.ghtml"
+              target="_blank">
+              <button class="btn-ler-mais">Ler mais</button>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
-   <section class="secao-generica">
-  <h2 class="titulo-secao">Artigos/noticias</h2>
-
-  <div class="grade-artigos">
-
-    <!-- CARD 1 -->
-    <div class="card-artigo">
-      <div class="imagem-artigo">
-        <img src="https://s2-g1.glbimg.com/ysUMtd2SJneUNiLdYTcmkERN_os=/0x0:1000x167/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2018/o/s/aubBAURqyUaTHrPVRgqA/selo-nao-e-bem-assim-1-.jpg">
-      </div>
-      <div class="conteudo-artigo">
-        <h3 class="titulo-artigo">GTA VI não será banido no Brasil pela Lei Felca</h3>
-        <p class="descricao-artigo">Rockstar suspendeu sua loja própria, mas o jogo segue disponível na PS Store, Xbox e Steam.</p>
-        <a href="https://g1.globo.com/fato-ou-fake/noticia/2026/03/20/nao-e-bem-assim-gta-vi-nao-sera-comercializado-no-brasil-apos-implementacao-da-lei-felca.ghtml" target="_blank">
-          <button class="btn-ler-mais">Ler mais</button>
-        </a>
-      </div>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="card-artigo">
-      <div class="imagem-artigo">
-        <img src="https://s2-g1.glbimg.com/LYqdhQ_bmThPkIyx-icjrYDOu0E=/0x0:960x540/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/p/U/lhWBQKSBmDoEu4s6tlig/project-helix.jpg">
-      </div>
-      <div class="conteudo-artigo">
-        <h3 class="titulo-artigo">Project Helix: novo Xbox rodará games de Xbox e PC</h3>
-        <p class="descricao-artigo">Console de próxima geração da Microsoft chega aos devs em 2027.</p>
-        <a href="https://g1.globo.com/pop-arte/games/noticia/2026/03/05/console-de-proxima-geracao-da-microsoft-de-codinome-project-helix-vai-rodar-games-de-xbox-e-pc.ghtml" target="_blank">
-          <button class="btn-ler-mais">Ler mais</button>
-        </a>
-      </div>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="card-artigo">
-      <div class="imagem-artigo">
-        <img src="https://www.adrenaline.com.br/wp-content/uploads/2026/02/pokemon-ventos-ondas-oficial.jpg">
-      </div>
-      <div class="conteudo-artigo">
-        <h3 class="titulo-artigo">Pokémon Ventos e Ondas chegam em 2027 com PT-BR</h3>
-        <p class="descricao-artigo">10ª geração será a primeira com tradução em português.</p>
-        <a href="https://g1.globo.com/pop-arte/games/noticia/2026/02/27/pokemon-ventos-e-ondas-sao-novos-games-da-franquia-com-lancamento-em-2027-veja-trailer.ghtml" target="_blank">
-          <button class="btn-ler-mais">Ler mais</button>
-        </a>
-      </div>
-    </div>
-
-    <!-- CARD 4 -->
-    <div class="card-artigo">
-      <div class="imagem-artigo">
-        <img src="https://s2-g1.glbimg.com/G4YQQPD0C_KncpFWGKjkvDP0rIg=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/W/F/KWmgUUS76iBB3D5oLlbQ/baldurs-gate-3.jpg">
-      </div>
-      <div class="conteudo-artigo">
-        <h3 class="titulo-artigo">Baldur's Gate vira série da HBO</h3>
-        <p class="descricao-artigo">Criador de The Last of Us lidera a adaptação.</p>
-        <a href="https://g1.globo.com/pop-arte/tv-e-series/noticia/2026/02/05/baldurs-gate-vai-virar-serie-do-cocriador-de-the-last-of-us.ghtml" target="_blank">
-          <button class="btn-ler-mais">Ler mais</button>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <!-- QUIZ (ADICIONADO) -->
     <section class="secao-quiz">
 
-      <button class="btn-quiz" onclick="iniciarQuiz()">
-        🎮 Descubra quanto você sabe sobre jogos!
-      </button>
+      <div class="card-quiz">
+        <h2>🎮 Quiz de Games</h2>
+        <p>Teste seus conhecimentos!</p>
+        <button id="btnQuizGame" onclick="iniciarQuizGame()">Começar</button>
 
-      <div class="caixa-quiz" id="quizBox" style="display:none;">
-        
-        <p class="progresso-quiz">
-          Questão <span id="numQuestao">1</span> de <span id="totalQuestoes"></span>
-        </p>
-
-        <div class="barra-progresso">
-          <div class="barra-progresso-preenchida" id="barra"></div>
+        <div id="quizGame" style="display:none;">
+          <p>Questão <span id="numeroGame"></span> / <span id="totalGame"></span></p>
+          <div class="barra">
+            <div id="progressoGame"></div>
+          </div>
+          <h3 id="perguntaGame"></h3>
+          <div class="opcoes">
+            <button id="game0"></button>
+            <button id="game1"></button>
+            <button id="game2"></button>
+            <button id="game3"></button>
+          </div>
+          <button id="proxGame" onclick="proximaGame()" disabled>Próxima</button>
         </div>
-
-        <p class="pergunta-quiz" id="pergunta"></p>
-
-        <div class="opcoes-quiz">
-          <button class="opcao-quiz" onclick="responder('A')" id="A"></button>
-          <button class="opcao-quiz" onclick="responder('B')" id="B"></button>
-          <button class="opcao-quiz" onclick="responder('C')" id="C"></button>
-          <button class="opcao-quiz" onclick="responder('D')" id="D"></button>
-        </div>
-
-        <button onclick="proxima()" id="btnProx" disabled>Próxima</button>
-
       </div>
 
-    </section>
+      <div class="card-quiz">
+        <h2>🖤 Alice Madness Returns</h2>
+        <p>Qual personagem combina com você?</p>
+        <button id="btnQuizAlice" onclick="iniciarQuizAlice()">Começar</button>
 
+        <div id="quizAlice" style="display:none;">
+          <p>Questão <span id="numeroAlice"></span> / <span id="totalAlice"></span></p>
+          <div class="barra">
+            <div id="progressoAlice"></div>
+          </div>
+          <h3 id="perguntaAlice"></h3>
+          <div class="opcoes">
+            <button id="alice0"></button>
+            <button id="alice1"></button>
+            <button id="alice2"></button>
+            <button id="alice3"></button>
+          </div>
+          <button id="proxAlice" onclick="proximaAlice()" disabled>Próxima</button>
+        </div>
+      </div>
+    </section>
   </main>
 
-</body>
+  <script>
 
-<script>
-const perguntas = [
-{
-  pergunta: "Quem criou The Legend of Zelda?",
-  A: "Shigeru Miyamoto",
-  B: "Hideo Kojima",
-  C: "Shinji Mikami",
-  D: "Masahiro Sakurai",
-  correta: "A"
-},
-{
-  pergunta: "Qual é a franquia mais vendida?",
-  A: "GTA",
-  B: "Mario",
-  C: "Pokémon",
-  D: "Call of Duty",
-  correta: "C"
-},
-{
-  pergunta: "Quem criou o PlayStation?",
-  A: "Nintendo",
-  B: "Microsoft",
-  C: "Sony",
-  D: "SEGA",
-  correta: "C"
-}
-]
+  const perguntasGame = [
+    {
+      pergunta: "Quem criou Zelda?",
+      opcoes: ["Miyamoto", "Kojima", "Sakurai", "Mikami"],
+      correta: 0
+    },
+    {
+      pergunta: "Qual empresa criou o Xbox?",
+      opcoes: ["Sony", "Microsoft", "Nintendo", "SEGA"],
+      correta: 1
+    },
+    {
+      pergunta: "Minecraft foi criado por?",
+      opcoes: ["Notch", "Valve", "EA", "Ubisoft"],
+      correta: 0
+    }
+  ];
 
-let atual = 0
-let pontos = 0
+  let atualGame = 0;
+  let pontosGame = 0;
 
-function iniciarQuiz() {
-  document.getElementById("quizBox").style.display = "block"
-  carregarPergunta()
-}
+  function iniciarQuizGame() {
+    atualGame = 0;
+    pontosGame = 0;
 
-function carregarPergunta() {
-  let q = perguntas[atual]
+    document.getElementById("quizGame").style.display = "block";
+    document.getElementById("btnQuizGame").style.display = "none";
 
-  document.getElementById("pergunta").innerText = q.pergunta
-  document.getElementById("A").innerText = q.A
-  document.getElementById("B").innerText = q.B
-  document.getElementById("C").innerText = q.C
-  document.getElementById("D").innerText = q.D
-
-  document.getElementById("numQuestao").innerText = atual + 1
-  document.getElementById("totalQuestoes").innerText = perguntas.length
-
-  let progresso = (atual / perguntas.length) * 100
-  document.getElementById("barra").style.width = progresso + "%"
-
-  document.getElementById("btnProx").disabled = true
-}
-
-function responder(letra) {
-  if (letra === perguntas[atual].correta) {
-    pontos++
+    carregarGame();
   }
 
-  document.getElementById("btnProx").disabled = false
+  function carregarGame() {
+
+    let perguntaAtual = perguntasGame[atualGame];
+
+    perguntaGame.innerText = perguntaAtual.pergunta;
+
+    numeroGame.innerText = atualGame + 1;
+    totalGame.innerText = perguntasGame.length;
+
+    progressoGame.style.width =
+      (atualGame / perguntasGame.length) * 100 + "%";
+
+    for (let i = 0; i < 4; i++) {
+
+      let botao = document.getElementById(`game${i}`);
+
+      botao.innerText = perguntaAtual.opcoes[i];
+      botao.disabled = false;
+      botao.style.background = "";
+
+      botao.onclick = function () {
+        responderGame(i);
+      };
+    }
+
+    proxGame.disabled = true;
+  }
+
+  function responderGame(i) {
+
+    let correta = perguntasGame[atualGame].correta;
+
+    for (let x = 0; x < 4; x++) {
+
+      let botao = document.getElementById(`game${x}`);
+
+      botao.disabled = true;
+
+      if (x == correta) {
+        botao.style.background = "#6fcf97";
+      }
+
+      else if (x == i) {
+        botao.style.background = "#ff6b81";
+      }
+    }
+
+    if (i == correta) {
+      pontosGame++;
+    }
+
+    proxGame.disabled = false;
+  }
+
+  function proximaGame() {
+
+    atualGame++;
+
+    if (atualGame < perguntasGame.length) {
+      carregarGame();
+    }
+
+    else {
+
+      quizGame.innerHTML = `
+        <div class="resultado-quiz">
+          <h2>🎮 Resultado</h2>
+          <p>Você acertou ${pontosGame} de ${perguntasGame.length}</p>
+          <button onclick="location.reload()">
+            Refazer
+          </button>
+        </div>
+      `;
+    }
+  }
+
+  const perguntasAlice = [
+  {
+    pergunta: "O que você faria em um perigo?",
+    opcoes: [
+      "Lutaria sem medo",
+      "Tentaria ajudar todos",
+      "Faria algo maluco",
+      "Iria embora"
+    ]
+  },
+
+  {
+    pergunta: "Qual combina mais com você?",
+    opcoes: [
+      "Coragem",
+      "Gentileza",
+      "Loucura",
+      "Mistério"
+    ]
+  },
+
+  {
+    pergunta: "Escolha um lugar:",
+    opcoes: [
+      "Castelo sombrio",
+      "Jardim mágico",
+      "Mesa do chá",
+      "Floresta escura"
+    ]
+  }
+];
+
+let atualAlice = 0;
+
+let A = 0;
+let B = 0;
+let C = 0;
+let D = 0;
+
+function iniciarQuizAlice() {
+
+  atualAlice = 0;
+
+  A = 0;
+  B = 0;
+  C = 0;
+  D = 0;
+
+  document.getElementById("quizAlice").style.display = "block";
+  document.getElementById("btnQuizAlice").style.display = "none";
+
+  carregarAlice();
 }
 
-function proxima() {
-  atual++
+function carregarAlice() {
 
-  if (atual < perguntas.length) {
-    carregarPergunta()
+  let perguntaAtual = perguntasAlice[atualAlice];
+  perguntaAlice.innerText = perguntaAtual.pergunta;
+  numeroAlice.innerText = atualAlice + 1;
+  totalAlice.innerText = perguntasAlice.length;
+
+  progressoAlice.style.width =
+    (atualAlice / perguntasAlice.length) * 100 + "%";
+
+  for (let i = 0; i < 4; i++) {
+
+    let botao = document.getElementById(`alice${i}`);
+
+    botao.innerText = perguntaAtual.opcoes[i];
+    botao.disabled = false;
+    botao.style.background = "";
+    botao.onclick = function () {
+      responderAlice(i);
+    };
+  }
+  proxAlice.disabled = true;
+}
+
+function responderAlice(i) {
+
+  if (i == 0) {
+    A++;
+  }
+
+  if (i == 1) {
+    B++;
+  }
+
+  if (i == 2) {
+    C++;
+  }
+  if (i == 3) {
+    D++;
+  }
+
+  for (let x = 0; x < 4; x++) {
+    let botao = document.getElementById(`alice${x}`);
+    botao.disabled = true;
+    if (x == i) {
+      botao.style.background = "#d7b8ff";
+    }
+  }
+  proxAlice.disabled = false;
+}
+
+function proximaAlice() {
+  atualAlice++;
+
+  if (atualAlice < perguntasAlice.length) {
+    carregarAlice();
   } else {
-    finalizar()
-  }
-}
+    let personagem = "";
 
-function finalizar() {
-  document.getElementById("quizBox").innerHTML = `
-    <h2>Fim do Quiz 🎉</h2>
-    <p>Você acertou ${pontos} de ${perguntas.length}</p>
-    <button onclick="location.reload()">Jogar novamente</button>
-  `
+    if (A > B && A > C && A > D) {
+      personagem = "🖤 Alice";
+    }
+
+    if (B > A && B > C && B > D) {
+      personagem = "😺 Cheshire";
+    }
+
+    if (C > A && C > B && C > D) {
+      personagem = "🎩 Chapeleiro";
+    }
+
+    if (D > A && D > B && D > C) {
+      personagem = "👑 Rainha Vermelha";
+    }
+
+    quizAlice.innerHTML = `
+      <div class="resultado-quiz">
+        <h2>${personagem}</h2>
+
+        <button onclick="location.reload()">
+          Refazer
+        </button>
+      </div>
+    `;
+  }
 }
 </script>
+</body>
 
 </html>

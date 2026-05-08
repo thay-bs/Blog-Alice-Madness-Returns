@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tata Madness | Dashboard</title>
+
+  <link rel="stylesheet" href="./css/stylePerfil.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="menu">
+      <div class="logo">
+
+        <h1>Tata</h1>
+
+        <p>Bem-vindo(a)</p>
+
+      </div>
+
+      <div class="nav-bar">
+
+        <a href="#" class="nav-item active">
+          Perfil
+        </a>
+        <a href="#" class="nav-item">
+          Reviews
+        </a>
+
+        <a href="#" class="nav-item">
+          Home
+        </a>
+      </div>
+
+      <button class="btn-sair">
+        Sair
+      </button>
+
+    </div>
+
+    <div class="main">
+
+      <div class="info">
+
+        <h2>Informações da sua conta</h2>
+
+        <div class="status-area">
+
+        </div>
+
+      </div>
+
+      <div class="kpis">
+
+        <div class="kpi-card">
+
+          <h4>Horas jogadas</h4>
+          <h1>223h</h1>
+
+        </div>
+
+        <div class="kpi-card">
+
+          <h4>Reviews nas últimas 24h</h4>
+          <h1>5</h1>
+
+        </div>
+
+        <div class="kpi-card">
+
+          <h4>Curtidas recebidas</h4>
+          <h1>2k</h1>
+
+
+        </div>
+
+        
+        <div class="kpi-card">
+
+          <h4>Acertos no quiz</h4>
+          <h1>4</h1>
+
+
+        </div>
+
+      </div>
+
+      <!-- GRAFICOS -->
+
+      <div class="graficos">
+
+        <div class="grafico-card">
+
+          <h3>Horas por jogo</h3>
+          <canvas id="graficoHoras"></canvas>
+
+        </div>
+
+        <div class="grafico-card">
+
+          <h3>Reviews por mês</h3>
+          <canvas id="graficoReviews"></canvas>
+
+        </div>z
+
+      </div>
+
+      <!-- ATIVIDADES -->
+
+      <div class="atividade-card">
+
+        <h3>Atividades recentes</h3>
+
+        <div class="atividade">
+          Review publicada
+        </div>
+
+        <div class="atividade">
+          3h jogadas
+        </div>
+
+        <div class="atividade">
+          Review publicada
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+<div class="alice-section">
+
+    <img src="./assets/logo.png" class="alice-logo">
+
+    <div class="alice-story">
+        <img src="./assets/alice.png" class="alice-char left">
+        <div class="alice-text">
+
+            <p>
+               A história de Alice: Madness Returns acompanha Alice Liddell anos após um incêndio destruir sua casa e matar toda sua família. 
+               Alice sobreviveu, mas o trauma foi tão intenso que sua mente entrou em colapso. 
+               Depois do acidente, ela foi internada no Hospício Rutledge, onde passou anos 
+               sendo tratada como alguém completamente insana. Mesmo fora do asilo, Alice 
+               continua atormentada por lembranças fragmentadas, alucinações e culpa. Ela vive em uma 
+               Londres sombria e decadente, tentando recuperar sua sanidade enquanto frequenta sessões 
+               com o psiquiatra Dr. Angus Bumby. Porém, sua mente continua escapando para o País das Maravilhas
+              ,um lugar que antes era mágico, mas agora está totalmente corrompido por seu sofrimento psicológico.
+              No começo do jogo, Alice percebe que algo está destruindo o País das Maravilhas por dentro. 
+              Criaturas monstruosas surgem em todos os lugares e uma entidade chamada “Infernal Train” atravessa os 
+              cenários como símbolo do trauma que ela tenta esquecer.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="alice-story reverse">
+        <img src="./assets/coelho.png" class="alice-char right">
+
+        <div class="alice-text">
+
+            <p>
+                Durante sua jornada, Alice reencontra versões distorcidas de personagens clássicos como o Chapeleiro, 
+                o Gato de Cheshire e a Rainha de Copas. Cada região do País das Maravilhas representa partes quebradas 
+                da mente dela: medo, culpa, repressão e memórias traumáticas. Enquanto luta contra monstros e atravessa 
+                cenários perturbadores, Alice começa a perceber que talvez o incêndio de sua infância não tenha sido um acidente. 
+                Aos poucos, memórias escondidas retornam, revelando detalhes cada vez mais sombrios sobre sua família e sobre 
+                pessoas próximas dela. O jogo mistura constantemente realidade e imaginação. Londres aparece fria, suja e opressiva, 
+                enquanto o País das Maravilhas funciona como uma representação psicológica da mente de Alice. Quanto mais ela se 
+                aproxima da verdade, mais violento e instável o mundo se torna. Além disso, Alice começa a desconfiar do próprio 
+                Dr. Bumby. O médico aparenta querer ajudá-la, mas existem sinais de manipulação em seus métodos e em suas conversas.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="alice-story">
+
+        <img src="./assets/gato.png" class="alice-char left">
+
+        <div class="alice-text">
+
+            <p>
+                No final de Alice: Madness Returns, Alice descobre a verdade sobre o incêndio: o responsável não foi ela, mas sim Dr. Bumby. 
+                Ele causou o incêndio para encobrir abusos cometidos contra a irmã de Alice e manipular toda a situação para permanecer impune.
+                 A culpa que Alice carregava por anos havia sido construída através de trauma, manipulação psicológica e memórias reprimidas. 
+                 O Infernal Train simbolizava exatamente essa tentativa de esconder a verdade dentro da mente dela
+                 Depois de enfrentar a Rainha de Copas que representa a parte autodestrutiva de sua própria mente 
+                 Alice finalmente aceita suas memórias e recupera o controle sobre si mesma. Em seguida, ela confronta Bumby no mundo real.
+                 O jogo termina de forma ambígua e sombria. Alice aparenta finalmente ter recuperado parte de sua sanidade, mas a mistura entre 
+                 Londres e o País das Maravilhas mostra que os dois mundos talvez nunca mais possam ser separados completamente.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
+<script>
+
+  const dataHoras = {
+    labels: ['Alice Madness', 'Valorant', 'Stardew Valley', 'Mario Kart'],
+    
+    datasets: [{
+      label: 'Horas',
+      data: [223, 48, 35, 20],
+      backgroundColor: '#e6005a',
+      borderRadius: 8
+    }]
+  };
+
+  const configHoras = {
+    type: 'bar',
+
+    data: dataHoras,
+
+    options: {
+
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        }
+      },
+
+      scales: {
+
+        x: {
+          ticks: {
+            color: 'rgba(255,255,255,0.6)'
+          }
+        },
+
+        y: {
+          ticks: {
+            color: 'rgba(255,255,255,0.6)'
+          }
+        }
+
+      }
+
+    }
+  };
+
+  let graficoHoras = new Chart(
+    document.getElementById('graficoHoras'),
+    configHoras
+  );
+
+
+  const dataReviews = {
+    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
+
+    datasets: [{
+      label: 'Reviews',
+      data: [1, 3, 5, 2, 8],
+      borderColor: '#e6005a',
+      backgroundColor: 'rgba(230,0,90,0.15)',
+      fill: true,
+      tension: 0.4
+    }]
+  };
+
+  const configReviews = {
+    type: 'line',
+
+    data: dataReviews,
+
+    options: {
+
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        }
+      },
+
+      scales: {
+
+        x: {
+          ticks: {
+            color: 'rgba(255,255,255,0.6)'
+          }
+        },
+
+        y: {
+          ticks: {
+            color: 'rgba(255,255,255,0.6)'
+          }
+        }
+
+      }
+
+    }
+  };
+
+  let graficoReviews = new Chart(
+    document.getElementById('graficoReviews'),
+    configReviews
+  );
+
+</script>

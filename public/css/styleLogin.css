@@ -17,7 +17,7 @@
 
 body {
   font-family: var(--font);
-  background-image: url("fundo.png");
+  background-image: url("../assets/fundo.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,7 +29,6 @@ body {
   padding-top: 62px; 
 }
 
-/* ── HEADER ── */
 .header {
   position: fixed;
   top: 0;
@@ -79,7 +78,6 @@ body {
   color: #c0505f;
 }
 
-/* ── MAIN ── */
 .main-content {
   flex: 1;
   display: flex;
@@ -88,7 +86,6 @@ body {
   padding: 16px 20px;
 }
 
-/* ── CARD ── */
 .card-cadastro {
   display: flex;
   border-radius: 24px;
@@ -99,7 +96,6 @@ body {
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.13);
 }
 
-/* LEFT — formulário */
 .card-left {
   background-color: var(--pink-card);
   padding: 76px 40px 82px 60px;
@@ -183,7 +179,6 @@ body {
   transform: translateY(0);
 }
 
-/* RIGHT — ilustração */
 .card-right {
   width: 40%;
   background: linear-gradient(160deg, #c8e8d8 0%, #b0d8c8 100%);
@@ -196,7 +191,6 @@ body {
   object-fit: cover;
 }
 
-/* ── ALERTS ── */
 .alerta_erro {
   position: fixed;
   top: 20px;
@@ -236,7 +230,6 @@ body {
   width: 34px;
 }
 
-/* ── FOOTER ── */
 .footer {
   background-color: var(--pink-header);
   padding: 12px 48px;
