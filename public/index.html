@@ -1,258 +1,567 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GamerHub | Forum & Quiz</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum</title>
+
   <link rel="stylesheet" href="./css/stylehome.css" />
 </head>
+
 <body onload="onloadEsconder()">
 
-    <div class="header">
-        <h1>GamerHub</h1>
-        <button onclick="window.location.reload()">Sair</button>
-    </div>
+  <div class="header">
+    <h1>Alice</h1>
+    <button onclick="window.location.reload()">Sair</button>
+  </div>
 
-    <section class="hero">
-        <h2>O Multiverso Gamer</h2>
-        <p>Acompanhe, discuta e jogue com a comunidade.</p>
-    </section>
+  <section class="hero">
+    <h2>O Multiverso Gamer</h2>
+    <p>Acompanhe, discuta e jogue com a comunidade.</p>
+  </section>
 
-    <div class="main-container">
-        
-        <div class="feed-column">
-            <div class="card">
-                <h3>O que está pensando, Player?</h3>
-                <div class="div-form">
-                    <input id="input_titulo" placeholder="Título da discussão">
-                    <textarea id="textarea_descricao" rows="3" placeholder="Conteúdo do post..."></textarea>
-                    <button onclick="publicar()">Publicar no Mural</button>
-                </div>
-            </div>
+  <div class="main-container">
 
-            <div id="feed_container">
-                <div class="card post">
-                    <div class="post-meta">Postado por <b>Marion Freud</b> • há 2 horas</div>
-                    <div class="post-title">Hollow Knight Silksong vai mesmo sair?</div>
-                    <div class="post-content">Já perdi as contas de quantos anos estou esperando. Alguém mais acha que teremos notícias na próxima Direct ou eu to maluco?</div>
-                </div>
+    <div class="feed-column">
+      <div class="card">
+        <h3>O que você jogou por último? Conta pra gente!</h3>
+        <div class="div-form">
+          <input id="input_titulo" placeholder="Título da discussão">
+          <textarea id="textarea_descricao" rows="3" placeholder="Conteúdo do post..."></textarea>
+          <button onclick="publicar()">Publicar</button>
+        </div>
+      </div>
 
-                <div class="card post">
-                    <div class="post-meta">Postado por <b>Duke Pillson</b> • há 5 horas</div>
-                    <div class="post-title">Dica para Elden Ring: Shadow of the Erdtree</div>
-                    <div class="post-content">Não esqueçam de coletar as Bençãos da Árvore Umbra! A dificuldade do DLC escala muito diferente do jogo base, vale a pena explorar antes dos chefes.</div>
-                </div>
-            </div>
+      <div id="feed_container">
+        <div class="card post">
+          <div class="post-meta">Postado por <b>wzsunny</b> • há 2 horas</div>
+          <div class="post-title">Resident Evil Requiem GOTY</div>
+          <div class="post-content">blablablablabla</div>
         </div>
 
-        <div class="side-column">
-            
-            <div class="card">
-                <h3 style="margin-top: 0;">🎯 Quiz Gamer</h3>
-                <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
-
-                <div id="pontuacao" class="flex-colunar" style="display:none; font-size: 13px; margin-bottom: 15px;">
-                    <div id="pontuacaoDuranteJogo">
-                        Acertos: <span id="spanCertas">0</span> | Erros: <span id="spanErradas">0</span>
-                    </div>
-                </div>
-
-                <div id="jogo" class="quiz-container" style="display:none;">
-                    <div id="infoQuestao">
-                        <span>Questão: <span id="spanNumeroDaQuestaoAtual"></span> / <span id="qtdQuestoes"></span></span>
-                    </div>
-
-                    <div id="perguntaDaQuestaoAtual">
-                        <span id="spanQuestaoExibida" class="text-bold"></span>
-                    </div>
-
-                    <div id="opcoes" class="flex-colunar">
-                        <span>
-                            <input type="radio" id="primeiraOpcao" name="option" value="alternativaA" />
-                            <label for="primeiraOpcao" class="option-label" id="labelOpcaoUm"></label>
-                        </span>
-                        <span>
-                            <input type="radio" id="segundaOpcao" name="option" value="alternativaB" />
-                            <label for="segundaOpcao" class="option-label" id="labelOpcaoDois"></label>
-                        </span>
-                        <span>
-                            <input type="radio" id="terceiraOpcao" name="option" value="alternativaC" />
-                            <label for="terceiraOpcao" class="option-label" id="labelOpcaoTres"></label>
-                        </span>
-                        <span>
-                            <input type="radio" id="quartaOpcao" name="option" value="alternativaD" />
-                            <label for="quartaOpcao" class="option-label" id="labelOpcaoQuatro"></label>
-                        </span>
-                    </div>
-
-                    <div id="botoes" class="flex-colunar">
-                        <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                        <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
-                        <div id="msgFinal" style="margin-top: 10px; font-size: 14px;"></div>
-                        <button onclick="window.location.reload()" id="btnTentarNovamente" style="display:none">Tentar novamente</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" id="card_perso">
-                <h3 style="margin-top:0">🎭 Alice Madness Returns</h3>
-                <p id="pergunta_perso">O que você faria em um perigo?</p>
-                <div id="opcoes_perso" class="flex-colunar">
-                    <button class="btn-perso" onclick="votarAlice('alice')">Lutaria sem medo (Vorpal Blade!)</button>
-                    <button class="btn-perso" onclick="votarAlice('chapeleiro')">Faria algo maluco</button>
-                    <button class="btn-perso" onclick="votarAlice('cheshire')">Iria embora calmamente (desaparecendo)</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 style="margin-top: 0;">🔥 Jogos em Alta</h3>
-                <div class="game-row">
-                    <div class="game-info">⚔️ <b>Elden Ring</b></div>
-                    <div class="trend-up">+47%</div>
-                </div>
-                <div class="game-row">
-                    <div class="game-info">🏰 <b>Baldur's Gate 3</b></div>
-                    <div class="trend-up">+12%</div>
-                </div>
-                <div class="game-row">
-                    <div class="game-info">🌾 <b>Stardew Valley</b></div>
-                    <div class="trend-up">+5%</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 style="margin-top: 0;">📰 Notícias</h3>
-                <div class="news-item">
-                    <span>Novo DLC</span>
-                    <div>Shadow of the Erdtree bate recordes.</div>
-                </div>
-                <div class="news-item">
-                    <span>E-Sports</span>
-                    <div>Final do mundial de Valorant definida.</div>
-                </div>
-            </div>
-
+        <div class="card post">
+          <div class="post-meta">Postado por <b>Duke Pillson</b> • há 5 horas</div>
+          <div class="post-title">Dica para Elden Ring: Shadow of the Erdtree</div>
+          <div class="post-content">Não esqueçam de coletar as Bençãos da Árvore Umbra! A dificuldade do DLC escala
+            muito diferente do jogo base, vale a pena explorar antes dos chefes.</div>
         </div>
+      </div>
     </div>
 
-    <script>
-        function publicar() {
-            var feed = document.getElementById("feed_container");
-            var div = document.createElement("div");
-            div.className = "card post";
-            div.innerHTML = `<div class="post-meta">Postado por <b>Você</b> • agora</div>
-                             <div class="post-title">${input_titulo.value}</div>
-                             <div class="post-content">${textarea_descricao.value}</div>`;
-            feed.insertBefore(div, feed.firstChild);
-            input_titulo.value = ""; textarea_descricao.value = "";
+    <div class="lateral">
+
+      <div class="card">
+        <h3 style="margin-top: 0;">Quiz Gamer</h3><br>
+        <span>Descubra quanto você sabe sobe jogos</span>
+        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+
+        <div id="pontuacao" class="flex-colunar" style="display:none; font-size: 13px; margin-bottom: 15px;">
+          <div id="pontuacaoDuranteJogo">
+            Acertos: <span id="spanCertas">0</span> | Erros: <span id="spanErradas">0</span>
+          </div>
+        </div>
+
+        <div id="jogo" class="quiz-container" style="display:none;">
+          <div id="infoQuestao">
+            <span>Questão: <span id="spanNumeroDaQuestaoAtual"></span> / <span id="qtdQuestoes"></span></span>
+          </div>
+
+          <div id="perguntaDaQuestaoAtual">
+            <span id="spanQuestaoExibida" class="text-bold"></span>
+          </div>
+
+          <div id="opcoes" class="flex-colunar">
+            <span>
+              <input type="radio" id="primeiraOpcao" name="option" value="alternativaA" />
+              <label for="primeiraOpcao" class="option-label" id="labelOpcaoUm"></label>
+            </span>
+            <span>
+              <input type="radio" id="segundaOpcao" name="option" value="alternativaB" />
+              <label for="segundaOpcao" class="option-label" id="labelOpcaoDois"></label>
+            </span>
+            <span>
+              <input type="radio" id="terceiraOpcao" name="option" value="alternativaC" />
+              <label for="terceiraOpcao" class="option-label" id="labelOpcaoTres"></label>
+            </span>
+            <span>
+              <input type="radio" id="quartaOpcao" name="option" value="alternativaD" />
+              <label for="quartaOpcao" class="option-label" id="labelOpcaoQuatro"></label>
+            </span>
+          </div>
+
+          <div id="botoes" class="flex-colunar">
+            <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+            <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
+            <div id="msgFinal" style="margin-top: 10px; font-size: 14px;"></div>
+            <button onclick="window.location.reload()" id="btnTentarNovamente" style="display:none">Tentar
+              novamente</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="card_perso">
+
+        <h3 style="margin-top:0">Alice Madness Returns</h3>
+
+        <span>
+          Descubra qual personagem combina com você
+        </span>
+
+        <button id="btnQuizAlice" onclick="iniciarQuizAlice()">
+          INICIAR QUIZ
+        </button>
+
+        <div id="quizAlice" style="display:none; margin-top:15px;">
+
+          <p id="pergunta_perso"></p>
+
+          <div id="opcoes_perso" class="flex-colunar"></div>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top: 0;">🔥 Jogos em Alta</h3>
+        <div class="game-row">
+          <div class="game-info"> <b>Elden Ring</b></div>
+        </div>
+        <div class="game-row">
+          <div class="game-info"> <b>Baldur's Gate 3</b></div>
+        </div>
+        <div class="game-row">
+          <div class="game-info"> <b>Stardew Valley</b></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top: 0;">📰 Notícias</h3>
+        <div class="news-item">
+          <span>Novo DLC</span>
+          <div>Shadow of the Erdtree bate recordes.</div>
+        </div>
+        <div class="news-item">
+          <span>E-Sports</span>
+          <div>Final do mundial de Valorant definida.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+
+    function publicar() {
+      var feed = document.getElementById("feed_container");
+      var div = document.createElement("div");
+      div.className = "card post";
+      div.innerHTML = `<div class="post-meta">Postado por <b>Você</b> • agora</div>
+                            <div class="post-title">${input_titulo.value}</div>
+                            <div class="post-content">${textarea_descricao.value}</div>`;
+      feed.insertBefore(div, feed.firstChild);
+      input_titulo.value = "";
+      textarea_descricao.value = "";
+    }
+
+    const perguntasAlice = [
+      {
+        pergunta: "O que você faria em um perigo?",
+        opcoes: [
+          "Lutaria sem medo",
+          "Tentaria ajudar todos",
+          "Faria algo maluco",
+          "Iria embora"
+        ]
+      },
+
+      {
+        pergunta: "Qual combina mais com você?",
+        opcoes: [
+          "Coragem",
+          "Gentileza",
+          "Loucura",
+          "Mistério"
+        ]
+      },
+
+      {
+        pergunta: "Escolha um lugar:",
+        opcoes: [
+          "Castelo sombrio",
+          "Jardim mágico",
+          "Mesa do chá",
+          "Floresta escura"
+        ]
+      },
+
+      {
+        pergunta: "Escolha uma arma:",
+        opcoes: [
+          "Espada Vorpal",
+          "Magia",
+          "Martelo gigante",
+          "Nenhuma"
+        ]
+      },
+
+      {
+        pergunta: "Como seus amigos te descrevem?",
+        opcoes: [
+          "Destemido",
+          "Carinhoso",
+          "Doido",
+          "Misterioso"
+        ]
+      }
+    ];
+
+    let atualAlice = 0;
+
+    let A = 0;
+    let B = 0;
+    let C = 0;
+    let D = 0;
+
+   function iniciarQuizAlice() {
+
+    atualAlice = 0;
+
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+
+    document.getElementById("quizAlice").style.display = "block";
+
+    document.getElementById("btnQuizAlice").style.display = "none";
+
+    carregarAlice();
+}
+    function carregarAlice() {
+
+      let perguntaAtual = perguntasAlice[atualAlice];
+
+      document.getElementById("pergunta_perso").innerText =
+        perguntaAtual.pergunta;
+
+      let opcoesDiv = document.getElementById("opcoes_perso");
+
+      opcoesDiv.innerHTML = "";
+
+      for (let i = 0; i < 4; i++) {
+
+        opcoesDiv.innerHTML += `
+                <button class="btn-perso" id="alice${i}" onclick="responderAlice(${i})">
+                    ${perguntaAtual.opcoes[i]}
+                </button>
+            `;
+      }
+    }
+
+    function responderAlice(i) {
+
+      if (i == 0) {
+        A++;
+      }
+
+      if (i == 1) {
+        B++;
+      }
+
+      if (i == 2) {
+        C++;
+      }
+
+      if (i == 3) {
+        D++;
+      }
+
+      atualAlice++;
+
+      if (atualAlice < perguntasAlice.length) {
+
+        carregarAlice();
+
+      } else {
+
+        let personagem = "";
+
+        if (A >= B && A >= C && A >= D) {
+          personagem = "🖤 Você é a Alice!";
         }
 
-        // LÓGICA ALICE
-        var pontosA = 0; var pontosC = 0; var pontosH = 0;
-        function votarAlice(tipo) {
-            if(tipo == 'alice') pontosA++; else if(tipo == 'chapeleiro') pontosH++; else pontosC++;
-            
-            var resultado = "Você é a Alice! 🖤";
-            if(pontosH > pontosA) resultado = "Você é o Chapeleiro! 🎩";
-            if(pontosC > pontosA && pontosC > pontosH) resultado = "Você é o Gato de Cheshire! 😺";
-
-            document.getElementById('card_perso').innerHTML = `<h3>Resultado:</h3><p style="font-weight:bold; color:var(--cor-principal)">${resultado}</p><button onclick="location.reload()">Refazer</button>`;
+        else if (B >= A && B >= C && B >= D) {
+          personagem = "😺 Você é o Cheshire!";
         }
 
-        // LÓGICA DO QUIZ ORIGINAL
-        const listaDeQuestoes = [
-            { pergunta: "Quem é o protagonista de The Legend of Zelda?", alternativaA: "Zelda", alternativaB: "Link", alternativaC: "Ganon", alternativaD: "Sheik", alternativaCorreta: "alternativaB" },
-            { pergunta: "Em qual ano foi lançado o primeiro PlayStation?", alternativaA: "1994", alternativaB: "1990", alternativaC: "2000", alternativaD: "1996", alternativaCorreta: "alternativaA" }
-        ];
-
-        let numeroDaQuestaoAtual = 0; let certas = 0; let erradas = 0; let quantidadeDeQuestoes = listaDeQuestoes.length;
-
-        function onloadEsconder() {
-            document.getElementById('pontuacao').style.display = "none";
-            document.getElementById('jogo').style.display = "none";
+        else if (C >= A && C >= B && C >= D) {
+          personagem = "🎩 Você é o Chapeleiro!";
         }
 
-        function iniciarQuiz() {
-            document.getElementById('pontuacao').style.display = "block";
-            document.getElementById('jogo').style.display = "flex";
-            document.getElementById('btnIniciarQuiz').style.display = "none";
-            document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes;
-            preencherHTMLcomQuestaoAtual(0);
+        else {
+          personagem = "👑 Você é a Rainha Vermelha!";
         }
 
-        function preencherHTMLcomQuestaoAtual(index) {
-            habilitarAlternativas(true);
-            const questaoAtual = listaDeQuestoes[index];
-            numeroDaQuestaoAtual = index;
-            document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = index + 1;
-            document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
-            document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
-            document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
-            document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
-            document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
-        }
+        document.getElementById('card_perso').innerHTML = `
+                <h3>Resultado:</h3>
 
-        function submeter() {
-            const options = document.getElementsByName("option");
-            let checked = false;
-            for (let i = 0; i < options.length; i++) { if (options[i].checked) checked = true; }
-            if (!checked) alert("Escolha uma opção!");
-            else { btnSubmeter.disabled = true; btnProx.disabled = false; habilitarAlternativas(false); checarResposta(); }
-        }
+                <p style="font-weight:bold; color:var(--cor-principal)">
+                    ${personagem}
+                </p>
 
-        function checarResposta() {
-            const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual];
-            const options = document.getElementsByName("option");
-            options.forEach((option) => {
-                let labelId = option.labels[0].id;
-                if (option.checked) {
-                    if (option.value === questaoAtual.alternativaCorreta) {
-                        document.getElementById(labelId).classList.add("text-success-with-bg");
-                        certas++;
-                    } else {
-                        document.getElementById(labelId).classList.add("text-danger-with-bg");
-                        erradas++;
-                        options.forEach(opt => {
-                            if(opt.value === questaoAtual.alternativaCorreta) 
-                                document.getElementById(opt.labels[0].id).classList.add("text-success-with-bg");
-                        });
-                    }
-                }
+                <button onclick="location.reload()">
+                    Refazer
+                </button>
+            `;
+      }
+    }
+
+    const listaDeQuestoes = [
+
+      {
+        pergunta: "Quem é o protagonista de The Legend of Zelda?",
+        alternativaA: "Zelda",
+        alternativaB: "Link",
+        alternativaC: "Ganon",
+        alternativaD: "Sheik",
+        alternativaCorreta: "alternativaB"
+      },
+
+      {
+        pergunta: "Em qual ano foi lançado o primeiro PlayStation?",
+        alternativaA: "1994",
+        alternativaB: "1990",
+        alternativaC: "2000",
+        alternativaD: "1996",
+        alternativaCorreta: "alternativaA"
+      },
+
+      {
+        pergunta: "Qual empresa criou o jogo Minecraft?",
+        alternativaA: "Rockstar",
+        alternativaB: "Valve",
+        alternativaC: "Mojang",
+        alternativaD: "Ubisoft",
+        alternativaCorreta: "alternativaC"
+      },
+
+      {
+        pergunta: "Qual é o nome do encanador da Nintendo?",
+        alternativaA: "Luigi",
+        alternativaB: "Mario",
+        alternativaC: "Wario",
+        alternativaD: "Toad",
+        alternativaCorreta: "alternativaB"
+      },
+
+      {
+        pergunta: "Em GTA San Andreas, qual é o nome do protagonista?",
+        alternativaA: "Tommy",
+        alternativaB: "CJ",
+        alternativaC: "Trevor",
+        alternativaD: "Franklin",
+        alternativaCorreta: "alternativaB"
+      },
+
+      {
+        pergunta: "Qual destes jogos é da FromSoftware?",
+        alternativaA: "Elden Ring",
+        alternativaB: "Valorant",
+        alternativaC: "Overwatch",
+        alternativaD: "Fortnite",
+        alternativaCorreta: "alternativaA"
+      },
+
+      {
+        pergunta: "Qual Pokémon é conhecido como o mascote da franquia?",
+        alternativaA: "Charizard",
+        alternativaB: "Bulbasaur",
+        alternativaC: "Pikachu",
+        alternativaD: "Mew",
+        alternativaCorreta: "alternativaC"
+      },
+
+      {
+        pergunta: "Qual jogo possui o personagem Kratos?",
+        alternativaA: "Dark Souls",
+        alternativaB: "God of War",
+        alternativaC: "Devil May Cry",
+        alternativaD: "Assassin's Creed",
+        alternativaCorreta: "alternativaB"
+      },
+
+      {
+        pergunta: "Qual battle royale foi criado pela Epic Games?",
+        alternativaA: "PUBG",
+        alternativaB: "Warzone",
+        alternativaC: "Apex Legends",
+        alternativaD: "Fortnite",
+        alternativaCorreta: "alternativaD"
+      },
+
+      {
+        pergunta: "Qual personagem fala 'It's me, *****!'?",
+        alternativaA: "Luigi",
+        alternativaB: "Bowser",
+        alternativaC: "Mario",
+        alternativaD: "Yoshi",
+        alternativaCorreta: "alternativaC"
+      }
+    ];
+
+    let numeroDaQuestaoAtual = 0;
+    let certas = 0;
+    let erradas = 0;
+    let quantidadeDeQuestoes = listaDeQuestoes.length;
+
+    function onloadEsconder() {
+      document.getElementById('pontuacao').style.display = "none";
+      document.getElementById('jogo').style.display = "none";
+    }
+
+    function iniciarQuiz() {
+      document.getElementById('pontuacao').style.display = "block";
+      document.getElementById('jogo').style.display = "flex";
+      document.getElementById('btnIniciarQuiz').style.display = "none";
+      document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes;
+      preencherHTMLcomQuestaoAtual(0);
+
+      iniciarQuizAlice();
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+      habilitarAlternativas(true);
+      const questaoAtual = listaDeQuestoes[index];
+      numeroDaQuestaoAtual = index;
+
+      document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = index + 1;
+      document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+      document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+      document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+      document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+      document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+    }
+
+    function submeter() {
+      const options = document.getElementsByName("option");
+      let checked = false;
+
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].checked) checked = true;
+      }
+
+      if (!checked) {
+        alert("Escolha uma opção!");
+      }
+
+      else {
+        btnSubmeter.disabled = true;
+        btnProx.disabled = false;
+        habilitarAlternativas(false);
+        checarResposta();
+      }
+    }
+
+    function checarResposta() {
+      const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual];
+      const options = document.getElementsByName("option");
+
+      options.forEach((option) => {
+
+        let labelId = option.labels[0].id;
+
+        if (option.checked) {
+
+          if (option.value === questaoAtual.alternativaCorreta) {
+
+            document.getElementById(labelId)
+              .classList.add("text-success-with-bg");
+
+            certas++;
+
+          } else {
+
+            document.getElementById(labelId)
+              .classList.add("text-danger-with-bg");
+
+            erradas++;
+
+            options.forEach(opt => {
+
+              if (opt.value === questaoAtual.alternativaCorreta)
+
+                document.getElementById(opt.labels[0].id)
+                  .classList.add("text-success-with-bg");
             });
-            document.getElementById("spanCertas").innerHTML = certas;
-            document.getElementById("spanErradas").innerHTML = erradas;
+          }
         }
+      });
 
-        function avancar() {
-            numeroDaQuestaoAtual++;
-            if (numeroDaQuestaoAtual < quantidadeDeQuestoes) {
-                limparCores(); desmarcarRadio();
-                preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual);
-                btnProx.disabled = true; btnSubmeter.disabled = false;
-            } else finalizarJogo();
-        }
+      document.getElementById("spanCertas").innerHTML = certas;
+      document.getElementById("spanErradas").innerHTML = erradas;
+    }
 
-        function finalizarJogo() {
-            document.getElementById('jogo').style.display = "none";
-            document.getElementById('msgFinal').innerHTML = `Fim do Quiz! Você acertou ${certas} de ${quantidadeDeQuestoes}.`;
-            btnTentarNovamente.style.display = "block";
-        }
+    function avancar() {
 
-        function habilitarAlternativas(status) {
-            const options = document.getElementsByName("option");
-            options.forEach(opt => opt.disabled = !status);
-        }
+      numeroDaQuestaoAtual++;
 
-        function limparCores() {
-            const labels = ["labelOpcaoUm", "labelOpcaoDois", "labelOpcaoTres", "labelOpcaoQuatro"];
-            labels.forEach(id => document.getElementById(id).classList.remove("text-success-with-bg", "text-danger-with-bg"));
-        }
+      if (numeroDaQuestaoAtual < quantidadeDeQuestoes) {
 
-        function desmarcarRadio() {
-            const options = document.getElementsByName("option");
-            options.forEach(opt => opt.checked = false);
-        }
-    </script>
+        limparCores();
+        desmarcarRadio();
+
+        preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual);
+
+        btnProx.disabled = true;
+        btnSubmeter.disabled = false;
+
+      } else {
+
+        finalizarJogo();
+      }
+    }
+
+    function finalizarJogo() {
+
+      document.getElementById('jogo').style.display = "none";
+
+      document.getElementById('msgFinal').innerHTML =
+        `Fim do Quiz! Você acertou ${certas} de ${quantidadeDeQuestoes}.`;
+
+      btnTentarNovamente.style.display = "block";
+    }
+
+    function habilitarAlternativas(status) {
+      const options = document.getElementsByName("option");
+      options.forEach(opt => opt.disabled = !status);
+    }
+
+    function limparCores() {
+
+      const labels = [
+        "labelOpcaoUm",
+        "labelOpcaoDois",
+        "labelOpcaoTres",
+        "labelOpcaoQuatro"
+      ];
+
+      labels.forEach(id =>
+
+        document.getElementById(id)
+          .classList.remove(
+            "text-success-with-bg",
+            "text-danger-with-bg"
+          )
+      );
+    }
+
+    function desmarcarRadio() {
+      const options = document.getElementsByName("option");
+      options.forEach(opt => opt.checked = false);
+    }
+
+  </script>
 </body>
+
 </html>
