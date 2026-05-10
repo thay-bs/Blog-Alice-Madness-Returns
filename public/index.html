@@ -1,434 +1,258 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog de Games</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamerHub | Forum & Quiz</title>
+    
   <link rel="stylesheet" href="./css/stylehome.css" />
-  <style>
-    /* Estilos básicos para garantir que o quiz funcione visualmente */
-    .barra {
-      background: #eee;
-      border-radius: 5px;
-      margin: 10px 0;
-      height: 10px;
-      overflow: hidden;
-    }
-
-    #progressoGame,
-    #progressoAlice {
-      height: 100%;
-      background: #4CAF50;
-      width: 0%;
-      transition: 0.3s;
-    }
-
-    .opcoes button {
-      display: block;
-      width: 100%;
-      margin: 5px 0;
-      padding: 10px;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .resultado-quiz {
-      text-align: center;
-      padding: 20px;
-    }
-  </style>
 </head>
+<body onload="onloadEsconder()">
 
-<body>
-
-  <nav class="barra-nav">
-    <div class="logo"></div>
-    <div class="menu-nav">
-      <a href="#" class="item-nav">Início</a>
-      <a href="#" class="item-nav">Reviews</a>
-      <a href="#" class="item-nav">Perfil</a>
-      <a href="cadastro.html" class="item-nav">Cadastro</a>
-      <a href="login.html" class="item-nav">Login</a>
+    <div class="header">
+        <h1>GamerHub</h1>
+        <button onclick="window.location.reload()">Sair</button>
     </div>
-  </nav>
 
-  <main class="conteudo-principal">
-
-    <section class="secao-destaque">
-      <div class="carrossel">
-        <div class="imagem-destaque">
-          <img src="./assets/pokopia.png" class="img-placeholder" alt="Pokemon Pokopia">
-        </div>
-        <span class="nome-jogo">Pokemon Pokopia</span>
-        <span class="nota-jogo">⭐ 4.8</span>
-      </div>
-    </section>
-    <section class="secao-generica">
-      <h2 class="titulo-secao">Artigos/notícias</h2>
-
-      <div class="grade-artigos">
-
-        <div class="card-artigo">
-          <div class="imagem-artigo">
-            <img
-              src="https://s2-g1.glbimg.com/ysUMtd2SJneUNiLdYTcmkERN_os=/0x0:1000x167/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2018/o/s/aubBAURqyUaTHrPVRgqA/selo-nao-e-bem-assim-1-.jpg">
-          </div>
-          <div class="conteudo-artigo">
-            <h3 class="titulo-artigo">GTA VI não será banido no Brasil pela Lei Felca</h3>
-            <p class="descricao-artigo">Rockstar suspendeu sua loja própria, mas o jogo segue disponível na PS Store,
-              Xbox e Steam.</p>
-            <a href="https://g1.globo.com/fato-ou-fake/noticia/2026/03/20/nao-e-bem-assim-gta-vi-nao-sera-comercializado-no-brasil-apos-implementacao-da-lei-felca.ghtml"
-              target="_blank">
-              <button class="btn-ler-mais">Ler mais</button>
-            </a>
-          </div>
-        </div>
-
-        <div class="card-artigo">
-          <div class="imagem-artigo">
-            <img
-              src="https://s2-g1.glbimg.com/LYqdhQ_bmThPkIyx-icjrYDOu0E=/0x0:960x540/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/p/U/lhWBQKSBmDoEu4s6tlig/project-helix.jpg">
-          </div>
-          <div class="conteudo-artigo">
-            <h3 class="titulo-artigo">Project Helix: novo Xbox rodará games de Xbox e PC</h3>
-            <p class="descricao-artigo">Console de próxima geração da Microsoft chega aos devs em 2027.</p>
-            <a href="https://g1.globo.com/pop-arte/games/noticia/2026/03/05/console-de-proxima-geracao-da-microsoft-de-codinome-project-helix-vai-rodar-games-de-xbox-e-pc.ghtml"
-              target="_blank">
-              <button class="btn-ler-mais">Ler mais</button>
-            </a>
-          </div>
-        </div>
-
-        <div class="card-artigo">
-          <div class="imagem-artigo">
-            <img src="https://www.adrenaline.com.br/wp-content/uploads/2026/02/pokemon-ventos-ondas-oficial.jpg">
-          </div>
-          <div class="conteudo-artigo">
-            <h3 class="titulo-artigo">Pokémon Ventos e Ondas chegam em 2027 com PT-BR</h3>
-            <p class="descricao-artigo">10ª geração será a primeira com tradução em português.</p>
-            <a href="https://g1.globo.com/pop-arte/games/noticia/2026/02/27/pokemon-ventos-e-ondas-sao-novos-games-da-franquia-com-lancamento-em-2027-veja-trailer.ghtml"
-              target="_blank">
-              <button class="btn-ler-mais">Ler mais</button>
-            </a>
-          </div>
-        </div>
-
-        <div class="card-artigo">
-          <div class="imagem-artigo">
-            <img
-              src="https://s2-g1.glbimg.com/G4YQQPD0C_KncpFWGKjkvDP0rIg=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/W/F/KWmgUUS76iBB3D5oLlbQ/baldurs-gate-3.jpg">
-          </div>
-          <div class="conteudo-artigo">
-            <h3 class="titulo-artigo">Baldur's Gate vira série da HBO</h3>
-            <p class="descricao-artigo">Criador de The Last of Us lidera a adaptação.</p>
-            <a href="https://g1.globo.com/pop-arte/tv-e-series/noticia/2026/02/05/baldurs-gate-vai-virar-serie-do-cocriador-de-the-last-of-us.ghtml"
-              target="_blank">
-              <button class="btn-ler-mais">Ler mais</button>
-            </a>
-          </div>
-        </div>
-
-      </div>
+    <section class="hero">
+        <h2>O Multiverso Gamer</h2>
+        <p>Acompanhe, discuta e jogue com a comunidade.</p>
     </section>
 
-    <section class="secao-quiz">
+    <div class="main-container">
+        
+        <div class="feed-column">
+            <div class="card">
+                <h3>O que está pensando, Player?</h3>
+                <div class="div-form">
+                    <input id="input_titulo" placeholder="Título da discussão">
+                    <textarea id="textarea_descricao" rows="3" placeholder="Conteúdo do post..."></textarea>
+                    <button onclick="publicar()">Publicar no Mural</button>
+                </div>
+            </div>
 
-      <div class="card-quiz">
-        <h2>🎮 Quiz de Games</h2>
-        <p>Teste seus conhecimentos!</p>
-        <button id="btnQuizGame" onclick="iniciarQuizGame()">Começar</button>
+            <div id="feed_container">
+                <div class="card post">
+                    <div class="post-meta">Postado por <b>Marion Freud</b> • há 2 horas</div>
+                    <div class="post-title">Hollow Knight Silksong vai mesmo sair?</div>
+                    <div class="post-content">Já perdi as contas de quantos anos estou esperando. Alguém mais acha que teremos notícias na próxima Direct ou eu to maluco?</div>
+                </div>
 
-        <div id="quizGame" style="display:none;">
-          <p>Questão <span id="numeroGame"></span> / <span id="totalGame"></span></p>
-          <div class="barra">
-            <div id="progressoGame"></div>
-          </div>
-          <h3 id="perguntaGame"></h3>
-          <div class="opcoes">
-            <button id="game0"></button>
-            <button id="game1"></button>
-            <button id="game2"></button>
-            <button id="game3"></button>
-          </div>
-          <button id="proxGame" onclick="proximaGame()" disabled>Próxima</button>
+                <div class="card post">
+                    <div class="post-meta">Postado por <b>Duke Pillson</b> • há 5 horas</div>
+                    <div class="post-title">Dica para Elden Ring: Shadow of the Erdtree</div>
+                    <div class="post-content">Não esqueçam de coletar as Bençãos da Árvore Umbra! A dificuldade do DLC escala muito diferente do jogo base, vale a pena explorar antes dos chefes.</div>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="card-quiz">
-        <h2>🖤 Alice Madness Returns</h2>
-        <p>Qual personagem combina com você?</p>
-        <button id="btnQuizAlice" onclick="iniciarQuizAlice()">Começar</button>
+        <div class="side-column">
+            
+            <div class="card">
+                <h3 style="margin-top: 0;">🎯 Quiz Gamer</h3>
+                <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <div id="quizAlice" style="display:none;">
-          <p>Questão <span id="numeroAlice"></span> / <span id="totalAlice"></span></p>
-          <div class="barra">
-            <div id="progressoAlice"></div>
-          </div>
-          <h3 id="perguntaAlice"></h3>
-          <div class="opcoes">
-            <button id="alice0"></button>
-            <button id="alice1"></button>
-            <button id="alice2"></button>
-            <button id="alice3"></button>
-          </div>
-          <button id="proxAlice" onclick="proximaAlice()" disabled>Próxima</button>
+                <div id="pontuacao" class="flex-colunar" style="display:none; font-size: 13px; margin-bottom: 15px;">
+                    <div id="pontuacaoDuranteJogo">
+                        Acertos: <span id="spanCertas">0</span> | Erros: <span id="spanErradas">0</span>
+                    </div>
+                </div>
+
+                <div id="jogo" class="quiz-container" style="display:none;">
+                    <div id="infoQuestao">
+                        <span>Questão: <span id="spanNumeroDaQuestaoAtual"></span> / <span id="qtdQuestoes"></span></span>
+                    </div>
+
+                    <div id="perguntaDaQuestaoAtual">
+                        <span id="spanQuestaoExibida" class="text-bold"></span>
+                    </div>
+
+                    <div id="opcoes" class="flex-colunar">
+                        <span>
+                            <input type="radio" id="primeiraOpcao" name="option" value="alternativaA" />
+                            <label for="primeiraOpcao" class="option-label" id="labelOpcaoUm"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="segundaOpcao" name="option" value="alternativaB" />
+                            <label for="segundaOpcao" class="option-label" id="labelOpcaoDois"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="terceiraOpcao" name="option" value="alternativaC" />
+                            <label for="terceiraOpcao" class="option-label" id="labelOpcaoTres"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quartaOpcao" name="option" value="alternativaD" />
+                            <label for="quartaOpcao" class="option-label" id="labelOpcaoQuatro"></label>
+                        </span>
+                    </div>
+
+                    <div id="botoes" class="flex-colunar">
+                        <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                        <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
+                        <div id="msgFinal" style="margin-top: 10px; font-size: 14px;"></div>
+                        <button onclick="window.location.reload()" id="btnTentarNovamente" style="display:none">Tentar novamente</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card_perso">
+                <h3 style="margin-top:0">🎭 Alice Madness Returns</h3>
+                <p id="pergunta_perso">O que você faria em um perigo?</p>
+                <div id="opcoes_perso" class="flex-colunar">
+                    <button class="btn-perso" onclick="votarAlice('alice')">Lutaria sem medo (Vorpal Blade!)</button>
+                    <button class="btn-perso" onclick="votarAlice('chapeleiro')">Faria algo maluco</button>
+                    <button class="btn-perso" onclick="votarAlice('cheshire')">Iria embora calmamente (desaparecendo)</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top: 0;">🔥 Jogos em Alta</h3>
+                <div class="game-row">
+                    <div class="game-info">⚔️ <b>Elden Ring</b></div>
+                    <div class="trend-up">+47%</div>
+                </div>
+                <div class="game-row">
+                    <div class="game-info">🏰 <b>Baldur's Gate 3</b></div>
+                    <div class="trend-up">+12%</div>
+                </div>
+                <div class="game-row">
+                    <div class="game-info">🌾 <b>Stardew Valley</b></div>
+                    <div class="trend-up">+5%</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top: 0;">📰 Notícias</h3>
+                <div class="news-item">
+                    <span>Novo DLC</span>
+                    <div>Shadow of the Erdtree bate recordes.</div>
+                </div>
+                <div class="news-item">
+                    <span>E-Sports</span>
+                    <div>Final do mundial de Valorant definida.</div>
+                </div>
+            </div>
+
         </div>
-      </div>
-    </section>
-  </main>
+    </div>
 
-  <script>
+    <script>
+        function publicar() {
+            var feed = document.getElementById("feed_container");
+            var div = document.createElement("div");
+            div.className = "card post";
+            div.innerHTML = `<div class="post-meta">Postado por <b>Você</b> • agora</div>
+                             <div class="post-title">${input_titulo.value}</div>
+                             <div class="post-content">${textarea_descricao.value}</div>`;
+            feed.insertBefore(div, feed.firstChild);
+            input_titulo.value = ""; textarea_descricao.value = "";
+        }
 
-  const perguntasGame = [
-    {
-      pergunta: "Quem criou Zelda?",
-      opcoes: ["Miyamoto", "Kojima", "Sakurai", "Mikami"],
-      correta: 0
-    },
-    {
-      pergunta: "Qual empresa criou o Xbox?",
-      opcoes: ["Sony", "Microsoft", "Nintendo", "SEGA"],
-      correta: 1
-    },
-    {
-      pergunta: "Minecraft foi criado por?",
-      opcoes: ["Notch", "Valve", "EA", "Ubisoft"],
-      correta: 0
-    }
-  ];
+        // LÓGICA ALICE
+        var pontosA = 0; var pontosC = 0; var pontosH = 0;
+        function votarAlice(tipo) {
+            if(tipo == 'alice') pontosA++; else if(tipo == 'chapeleiro') pontosH++; else pontosC++;
+            
+            var resultado = "Você é a Alice! 🖤";
+            if(pontosH > pontosA) resultado = "Você é o Chapeleiro! 🎩";
+            if(pontosC > pontosA && pontosC > pontosH) resultado = "Você é o Gato de Cheshire! 😺";
 
-  let atualGame = 0;
-  let pontosGame = 0;
+            document.getElementById('card_perso').innerHTML = `<h3>Resultado:</h3><p style="font-weight:bold; color:var(--cor-principal)">${resultado}</p><button onclick="location.reload()">Refazer</button>`;
+        }
 
-  function iniciarQuizGame() {
-    atualGame = 0;
-    pontosGame = 0;
+        // LÓGICA DO QUIZ ORIGINAL
+        const listaDeQuestoes = [
+            { pergunta: "Quem é o protagonista de The Legend of Zelda?", alternativaA: "Zelda", alternativaB: "Link", alternativaC: "Ganon", alternativaD: "Sheik", alternativaCorreta: "alternativaB" },
+            { pergunta: "Em qual ano foi lançado o primeiro PlayStation?", alternativaA: "1994", alternativaB: "1990", alternativaC: "2000", alternativaD: "1996", alternativaCorreta: "alternativaA" }
+        ];
 
-    document.getElementById("quizGame").style.display = "block";
-    document.getElementById("btnQuizGame").style.display = "none";
+        let numeroDaQuestaoAtual = 0; let certas = 0; let erradas = 0; let quantidadeDeQuestoes = listaDeQuestoes.length;
 
-    carregarGame();
-  }
+        function onloadEsconder() {
+            document.getElementById('pontuacao').style.display = "none";
+            document.getElementById('jogo').style.display = "none";
+        }
 
-  function carregarGame() {
+        function iniciarQuiz() {
+            document.getElementById('pontuacao').style.display = "block";
+            document.getElementById('jogo').style.display = "flex";
+            document.getElementById('btnIniciarQuiz').style.display = "none";
+            document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes;
+            preencherHTMLcomQuestaoAtual(0);
+        }
 
-    let perguntaAtual = perguntasGame[atualGame];
+        function preencherHTMLcomQuestaoAtual(index) {
+            habilitarAlternativas(true);
+            const questaoAtual = listaDeQuestoes[index];
+            numeroDaQuestaoAtual = index;
+            document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = index + 1;
+            document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+            document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+            document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+            document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+            document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+        }
 
-    perguntaGame.innerText = perguntaAtual.pergunta;
+        function submeter() {
+            const options = document.getElementsByName("option");
+            let checked = false;
+            for (let i = 0; i < options.length; i++) { if (options[i].checked) checked = true; }
+            if (!checked) alert("Escolha uma opção!");
+            else { btnSubmeter.disabled = true; btnProx.disabled = false; habilitarAlternativas(false); checarResposta(); }
+        }
 
-    numeroGame.innerText = atualGame + 1;
-    totalGame.innerText = perguntasGame.length;
+        function checarResposta() {
+            const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual];
+            const options = document.getElementsByName("option");
+            options.forEach((option) => {
+                let labelId = option.labels[0].id;
+                if (option.checked) {
+                    if (option.value === questaoAtual.alternativaCorreta) {
+                        document.getElementById(labelId).classList.add("text-success-with-bg");
+                        certas++;
+                    } else {
+                        document.getElementById(labelId).classList.add("text-danger-with-bg");
+                        erradas++;
+                        options.forEach(opt => {
+                            if(opt.value === questaoAtual.alternativaCorreta) 
+                                document.getElementById(opt.labels[0].id).classList.add("text-success-with-bg");
+                        });
+                    }
+                }
+            });
+            document.getElementById("spanCertas").innerHTML = certas;
+            document.getElementById("spanErradas").innerHTML = erradas;
+        }
 
-    progressoGame.style.width =
-      (atualGame / perguntasGame.length) * 100 + "%";
+        function avancar() {
+            numeroDaQuestaoAtual++;
+            if (numeroDaQuestaoAtual < quantidadeDeQuestoes) {
+                limparCores(); desmarcarRadio();
+                preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual);
+                btnProx.disabled = true; btnSubmeter.disabled = false;
+            } else finalizarJogo();
+        }
 
-    for (let i = 0; i < 4; i++) {
+        function finalizarJogo() {
+            document.getElementById('jogo').style.display = "none";
+            document.getElementById('msgFinal').innerHTML = `Fim do Quiz! Você acertou ${certas} de ${quantidadeDeQuestoes}.`;
+            btnTentarNovamente.style.display = "block";
+        }
 
-      let botao = document.getElementById(`game${i}`);
+        function habilitarAlternativas(status) {
+            const options = document.getElementsByName("option");
+            options.forEach(opt => opt.disabled = !status);
+        }
 
-      botao.innerText = perguntaAtual.opcoes[i];
-      botao.disabled = false;
-      botao.style.background = "";
+        function limparCores() {
+            const labels = ["labelOpcaoUm", "labelOpcaoDois", "labelOpcaoTres", "labelOpcaoQuatro"];
+            labels.forEach(id => document.getElementById(id).classList.remove("text-success-with-bg", "text-danger-with-bg"));
+        }
 
-      botao.onclick = function () {
-        responderGame(i);
-      };
-    }
-
-    proxGame.disabled = true;
-  }
-
-  function responderGame(i) {
-
-    let correta = perguntasGame[atualGame].correta;
-
-    for (let x = 0; x < 4; x++) {
-
-      let botao = document.getElementById(`game${x}`);
-
-      botao.disabled = true;
-
-      if (x == correta) {
-        botao.style.background = "#6fcf97";
-      }
-
-      else if (x == i) {
-        botao.style.background = "#ff6b81";
-      }
-    }
-
-    if (i == correta) {
-      pontosGame++;
-    }
-
-    proxGame.disabled = false;
-  }
-
-  function proximaGame() {
-
-    atualGame++;
-
-    if (atualGame < perguntasGame.length) {
-      carregarGame();
-    }
-
-    else {
-
-      quizGame.innerHTML = `
-        <div class="resultado-quiz">
-          <h2>🎮 Resultado</h2>
-          <p>Você acertou ${pontosGame} de ${perguntasGame.length}</p>
-          <button onclick="location.reload()">
-            Refazer
-          </button>
-        </div>
-      `;
-    }
-  }
-
-  const perguntasAlice = [
-  {
-    pergunta: "O que você faria em um perigo?",
-    opcoes: [
-      "Lutaria sem medo",
-      "Tentaria ajudar todos",
-      "Faria algo maluco",
-      "Iria embora"
-    ]
-  },
-
-  {
-    pergunta: "Qual combina mais com você?",
-    opcoes: [
-      "Coragem",
-      "Gentileza",
-      "Loucura",
-      "Mistério"
-    ]
-  },
-
-  {
-    pergunta: "Escolha um lugar:",
-    opcoes: [
-      "Castelo sombrio",
-      "Jardim mágico",
-      "Mesa do chá",
-      "Floresta escura"
-    ]
-  }
-];
-
-let atualAlice = 0;
-
-let A = 0;
-let B = 0;
-let C = 0;
-let D = 0;
-
-function iniciarQuizAlice() {
-
-  atualAlice = 0;
-
-  A = 0;
-  B = 0;
-  C = 0;
-  D = 0;
-
-  document.getElementById("quizAlice").style.display = "block";
-  document.getElementById("btnQuizAlice").style.display = "none";
-
-  carregarAlice();
-}
-
-function carregarAlice() {
-
-  let perguntaAtual = perguntasAlice[atualAlice];
-  perguntaAlice.innerText = perguntaAtual.pergunta;
-  numeroAlice.innerText = atualAlice + 1;
-  totalAlice.innerText = perguntasAlice.length;
-
-  progressoAlice.style.width =
-    (atualAlice / perguntasAlice.length) * 100 + "%";
-
-  for (let i = 0; i < 4; i++) {
-
-    let botao = document.getElementById(`alice${i}`);
-
-    botao.innerText = perguntaAtual.opcoes[i];
-    botao.disabled = false;
-    botao.style.background = "";
-    botao.onclick = function () {
-      responderAlice(i);
-    };
-  }
-  proxAlice.disabled = true;
-}
-
-function responderAlice(i) {
-
-  if (i == 0) {
-    A++;
-  }
-
-  if (i == 1) {
-    B++;
-  }
-
-  if (i == 2) {
-    C++;
-  }
-  if (i == 3) {
-    D++;
-  }
-
-  for (let x = 0; x < 4; x++) {
-    let botao = document.getElementById(`alice${x}`);
-    botao.disabled = true;
-    if (x == i) {
-      botao.style.background = "#d7b8ff";
-    }
-  }
-  proxAlice.disabled = false;
-}
-
-function proximaAlice() {
-  atualAlice++;
-
-  if (atualAlice < perguntasAlice.length) {
-    carregarAlice();
-  } else {
-    let personagem = "";
-
-    if (A > B && A > C && A > D) {
-      personagem = "🖤 Alice";
-    }
-
-    if (B > A && B > C && B > D) {
-      personagem = "😺 Cheshire";
-    }
-
-    if (C > A && C > B && C > D) {
-      personagem = "🎩 Chapeleiro";
-    }
-
-    if (D > A && D > B && D > C) {
-      personagem = "👑 Rainha Vermelha";
-    }
-
-    quizAlice.innerHTML = `
-      <div class="resultado-quiz">
-        <h2>${personagem}</h2>
-
-        <button onclick="location.reload()">
-          Refazer
-        </button>
-      </div>
-    `;
-  }
-}
-</script>
+        function desmarcarRadio() {
+            const options = document.getElementsByName("option");
+            options.forEach(opt => opt.checked = false);
+        }
+    </script>
 </body>
-
 </html>
