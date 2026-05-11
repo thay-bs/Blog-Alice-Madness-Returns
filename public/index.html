@@ -38,13 +38,21 @@
           <div class="post-meta">Postado por <b>wzsunny</b> • há 2 horas</div>
           <div class="post-title">Resident Evil Requiem GOTY</div>
           <div class="post-content">blablablablabla</div>
+          <button class="btn-like" onclick="curtir(this)">
+            ❤ 201
+          </button>
         </div>
 
         <div class="card post">
-          <div class="post-meta">Postado por <b>Duke Pillson</b> • há 5 horas</div>
-          <div class="post-title">Dica para Elden Ring: Shadow of the Erdtree</div>
-          <div class="post-content">Não esqueçam de coletar as Bençãos da Árvore Umbra! A dificuldade do DLC escala
-            muito diferente do jogo base, vale a pena explorar antes dos chefes.</div>
+          <div class="post-meta">Postado por <b>Alan pai recente</b> • há 5 horas</div>
+          <div class="post-title">Pragmata: simulador pai de familia muito bom</div>
+          <div class="post-content">Acabei de zerar com 16 horas de jogo e a única coisa que consigo dizer é: uau. 
+            Pragmata é uma daquelas experiências raras que te deixam encarando os créditos em silêncio, tentando processar tudo o que aconteceu.
+            A direção artística é impecável e a narrativa me prendeu de um jeito que eu não esperava. Se você busca algo fora do comum e que 
+            realmente te deixe sem palavras, apenas jogue. Vale cada segundo.</div>
+              <button class="btn-like" onclick="curtir(this)">
+            ❤ 45
+          </button>
         </div>
       </div>
     </div>
@@ -113,9 +121,7 @@
         </button>
 
         <div id="quizAlice" style="display:none; margin-top:15px;">
-
           <p id="pergunta_perso"></p>
-
           <div id="opcoes_perso" class="flex-colunar"></div>
 
         </div>
@@ -156,12 +162,32 @@
       var feed = document.getElementById("feed_container");
       var div = document.createElement("div");
       div.className = "card post";
-      div.innerHTML = `<div class="post-meta">Postado por <b>Você</b> • agora</div>
-                            <div class="post-title">${input_titulo.value}</div>
-                            <div class="post-content">${textarea_descricao.value}</div>`;
-      feed.insertBefore(div, feed.firstChild);
-      input_titulo.value = "";
-      textarea_descricao.value = "";
+      div.innerHTML = `
+<div class="post-meta">
+    Postado por <b>Você</b> • agora
+</div>
+
+<div class="post-title">
+    ${input_titulo.value}
+</div>
+
+<div class="post-content">
+    ${textarea_descricao.value}
+</div>
+
+<button class="btn-like" onclick="curtir(this)">
+    ♡ Curtir
+</button>
+`;}
+    function curtir(botao) {
+  botao.classList.toggle("curtido");
+
+  let numero = parseInt(botao.innerText.replace("❤ ", ""));
+  if (botao.classList.contains("curtido")) {
+    botao.innerHTML = `❤ ${numero + 1}`;
+  } else {
+    botao.innerHTML = `❤ ${numero - 1}`;
+  }
     }
 
     const perguntasAlice = [
@@ -223,21 +249,21 @@
     let C = 0;
     let D = 0;
 
-   function iniciarQuizAlice() {
+    function iniciarQuizAlice() {
 
-    atualAlice = 0;
+      atualAlice = 0;
 
-    A = 0;
-    B = 0;
-    C = 0;
-    D = 0;
+      A = 0;
+      B = 0;
+      C = 0;
+      D = 0;
 
-    document.getElementById("quizAlice").style.display = "block";
+      document.getElementById("quizAlice").style.display = "block";
 
-    document.getElementById("btnQuizAlice").style.display = "none";
+      document.getElementById("btnQuizAlice").style.display = "none";
 
-    carregarAlice();
-}
+      carregarAlice();
+    }
     function carregarAlice() {
 
       let perguntaAtual = perguntasAlice[atualAlice];
