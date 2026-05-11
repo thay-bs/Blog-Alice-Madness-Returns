@@ -29,6 +29,22 @@ body {
   color: var(--cor-principal);
   font-size: 24px;
 }
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #444;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
 /* SECTION HERO */
 .hero {
@@ -47,14 +63,11 @@ body {
 
 .hero h2 {
   font-size: 40px;
-  margin-top: 100px;
+  margin-bottom: 400px;
+  color: #fff;
+  margin-right: 40px;
 }
 
-.hero p {
-  color: var(--cor-principal);
-  font-weight: bold;
-   margin-bottom: 440px;
-}
 
 /* LAYOUT PRINCIPAL */
 .main-container {
@@ -107,10 +120,11 @@ body {
 /* BOTÕES */
 button {
   padding: 10px 15px;
-  border-radius: 8px;
+  border-radius: 12px;
   border: none;
   background-color: var(--cor-principal);
   font-weight: bold;
+  margin-top: 15px;
 }
 
 /* ESTILOS DO QUIZ */
@@ -118,18 +132,6 @@ button {
   display: flex;
   flex-direction: column;
   gap: 15px;
-}
-
-.flex-colunar {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.text-bold {
-  font-weight: bold;
-  font-size: 18px;
-  color: var(--cor-principal);
 }
 
 .option-label {
@@ -219,6 +221,7 @@ button {
   font-size: 15px;
   color: #777;
 }
+
 .btn-like.curtido {
   color: #e63946;
 }

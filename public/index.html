@@ -11,14 +11,19 @@
 
 <body onload="onloadEsconder()">
 
-  <div class="header">
-    <h1>Alice</h1>
-    <button onclick="window.location.reload()">Sair</button>
+<div class="header">
+    <div class="header-logo">
+    </div>
+    <ul class="navbar">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="perfil.html">Perfil</a></li>
+      <li><a href="cadastro.html">Cadastrar</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
   </div>
 
   <section class="hero">
-    <h2>O Multiverso Gamer</h2>
-    <p>Acompanhe, discuta e jogue com a comunidade.</p>
+    <h2>Preciso de um nome legal</h2>
   </section>
 
   <div class="main-container">
@@ -64,11 +69,6 @@
         <span>Descubra quanto você sabe sobe jogos</span>
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <div id="pontuacao" class="flex-colunar" style="display:none; font-size: 13px; margin-bottom: 15px;">
-          <div id="pontuacaoDuranteJogo">
-            Acertos: <span id="spanCertas">0</span> | Erros: <span id="spanErradas">0</span>
-          </div>
-        </div>
 
         <div id="jogo" class="quiz-container" style="display:none;">
           <div id="infoQuestao">
@@ -131,13 +131,15 @@
       <div class="card">
         <h3 style="margin-top: 0;">🔥 Jogos em Alta</h3>
         <div class="game-row">
-          <div class="game-info"> <b>Elden Ring</b></div>
+          <div class="game-info"> <b>1º Elden Ring</b></div>
         </div>
+        <hr>
         <div class="game-row">
-          <div class="game-info"> <b>Baldur's Gate 3</b></div>
+          <div class="game-info"> <b>2º Baldur's Gate 3</b></div>
         </div>
+        <hr>
         <div class="game-row">
-          <div class="game-info"> <b>Stardew Valley</b></div>
+          <div class="game-info"> <b>3º Fortnite</b></div>
         </div>
       </div>
 
@@ -153,32 +155,55 @@
         </div>
       </div>
 
+      <div class="card">
+
+  <h3>Quer descobrir em quantos dias finaliza algum jogo?</h3>
+  <div class="news-item">
+    <span>Descubra agora!</span>
+  </div>
+  <input type="number" id="input_horasJogo" placeholder="Horas totais do jogo">
+  <input type="number" id="input_horasDia" placeholder="Horas jogadas por dia">
+
+  <button onclick="calcularDias()">CALCULAR</button>
+  <div id="resultado_calc"></div>
+
+</div>
+        
+
     </div>
   </div>
 
   <script>
 
     function publicar() {
-      var feed = document.getElementById("feed_container");
-      var div = document.createElement("div");
-      div.className = "card post";
-      div.innerHTML = `
-<div class="post-meta">
-    Postado por <b>Você</b> • agora
-</div>
 
-<div class="post-title">
-    ${input_titulo.value}
-</div>
+    var feed = document.getElementById("feed_container");
+    var div = document.createElement("div");
+    div.className = "card post";
 
-<div class="post-content">
-    ${textarea_descricao.value}
-</div>
+  div.innerHTML = `
+    <div class="post-meta">
+      Postado por <b>Você</b> • agora
+    </div>
 
-<button class="btn-like" onclick="curtir(this)">
-    ♡ Curtir
-</button>
-`;}
+    <div class="post-title">
+      ${input_titulo.value}
+    </div>
+
+    <div class="post-content">
+      ${textarea_descricao.value}
+    </div>
+
+    <button class="btn-like" onclick="curtir(this)">
+      ♡ Curtir
+    </button>
+  `;
+
+  feed.insertBefore(div, feed.firstChild);
+
+  input_titulo.value = "";
+  textarea_descricao.value = "";
+}
     function curtir(botao) {
   botao.classList.toggle("curtido");
 
@@ -442,12 +467,10 @@
     let quantidadeDeQuestoes = listaDeQuestoes.length;
 
     function onloadEsconder() {
-      document.getElementById('pontuacao').style.display = "none";
       document.getElementById('jogo').style.display = "none";
     }
 
     function iniciarQuiz() {
-      document.getElementById('pontuacao').style.display = "block";
       document.getElementById('jogo').style.display = "flex";
       document.getElementById('btnIniciarQuiz').style.display = "none";
       document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes;
@@ -547,21 +570,34 @@
         finalizarJogo();
       }
     }
+function finalizarJogo() {
 
-    function finalizarJogo() {
+  document.getElementById('jogo').innerHTML = `
+  
+    <h3>🎉 Parabéns, você concluiu o quiz!</h3>
 
-      document.getElementById('jogo').style.display = "none";
+    <p style="margin-top:10px;">
+      ✅ Acertos: ${certas}
+      <br>
+      ❌ Erros: ${erradas}
+    </p>
 
-      document.getElementById('msgFinal').innerHTML =
-        `Fim do Quiz! Você acertou ${certas} de ${quantidadeDeQuestoes}.`;
+    <button onclick="window.location.reload()" 
+    id="btnTentarNovamente">
+      Tentar novamente
+    </button>
+  `;
+}
 
-      btnTentarNovamente.style.display = "block";
-    }
+function habilitarAlternativas(status) {
 
-    function habilitarAlternativas(status) {
-      const options = document.getElementsByName("option");
-      options.forEach(opt => opt.disabled = !status);
-    }
+  const options = document.getElementsByName("option");
+
+  options.forEach(opt => {
+    opt.disabled = !status;
+  });
+
+}
 
     function limparCores() {
 
@@ -586,7 +622,24 @@
       const options = document.getElementsByName("option");
       options.forEach(opt => opt.checked = false);
     }
+  function calcularDias() {
 
+  let horasJogo = Number(input_horasJogo.value);
+  let horasDia = Number(input_horasDia.value);
+
+  if (horasJogo <= 0 || horasDia <= 0) {
+
+    resultado_calc.innerHTML =
+      "Digite valores válidos!";
+
+  } else {
+    let dias = horasJogo / horasDia;
+
+    resultado_calc.innerHTML =
+      `Você terminará o jogo em aproximadamente 
+      <b>${dias} dias</b>`;
+  }
+}
   </script>
 </body>
 

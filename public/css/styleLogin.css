@@ -96,7 +96,6 @@ body {
   display: flex;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.13);
 }
 
 .card-left {
@@ -112,7 +111,7 @@ body {
   font-weight: 900;
   color: var(--cor-branca);
   margin-left: 30px;
-  margin-bottom: 22px;
+  margin-bottom: 62px;
 }
 
 /* FORMULARIO */
@@ -144,13 +143,6 @@ body {
   font-family: var(--font);
   font-size: 13px;
   color: #999;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-}
-
-.campo input:focus {
-  box-shadow: 0 0 0 3px rgba(107, 191, 172, 0.4);
-  color: var(--cor-texto);
 }
 
 .campo input::placeholder {
@@ -160,7 +152,7 @@ body {
 /* BOTAO */
 
 .botao {
-  margin-top: 12px;
+  margin-top: 50px;
   align-self: center;
   padding: 12px 52px;
   border: none;
@@ -170,15 +162,12 @@ body {
   font-family: var(--font);
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: 1.5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 /* IMAGEM */
 
 .card-right {
   width: 40%;
-  background: linear-gradient(160deg, #c8e8d8 0%, #b0d8c8 100%);
   overflow: hidden;
 }
 
@@ -209,7 +198,6 @@ body {
   font-size: 13px;
   font-weight: 700;
   color: var(--cor-texto);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 
 /* FOOTER */
@@ -233,4 +221,20 @@ body {
   font-size: 11px;
   font-weight: 600;
   color: var(--cor-label);
+}
+.texto-cadastro {
+  margin-top: 15px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
+
+.texto-cadastro a {
+  color: #ff4fa3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.texto-cadastro a:hover {
+  text-decoration: underline;
 }
