@@ -25,14 +25,11 @@ body {
     background-attachment: fixed;
 }
 
-/* CONTAINER */
-
 .container {
     display: flex;
     min-height: 100vh;
 }
 
-/* MENU */
 
 .menu {
     width: 240px;
@@ -53,7 +50,6 @@ body {
     color: var(--cor-texto-suave);
 }
 
-/* NAVBAR */
 
 .nav-bar {
     display: flex;
@@ -78,7 +74,6 @@ body {
     color: var(--cor-texto);
 }
 
-/* BOTAO */
 
 .btn-sair {
     padding: 14px;
@@ -92,14 +87,12 @@ body {
     opacity: 0.8;
 }
 
-/* MAIN */
 
 .main {
     flex: 1;
     padding: 40px;
 }
 
-/* INFO */
 
 .info {
     display: flex;
@@ -121,7 +114,6 @@ body {
     color: var(--cor-principal);
 }
 
-/* KPIS */
 
 .kpis {
     display: grid;
@@ -146,8 +138,6 @@ body {
     margin-bottom: 15px;
 }
 
-/* STATUS */
-
 .alerta,
 .seguro {
     display: inline-block;
@@ -166,7 +156,6 @@ body {
     color: var(--cor-sucesso);
 }
 
-/* GRAFICOS */
 
 .graficos {
     display: grid;
@@ -186,7 +175,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* ATIVIDADE */
 
 .atividade-card {
     margin-top: 30px;
@@ -206,7 +194,6 @@ body {
     color: var(--cor-texto-suave);
 }
 
-/* ALICE */
 
 .alice-section {
     width: 100%;
